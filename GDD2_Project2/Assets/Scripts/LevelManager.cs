@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    [SerializeField] float speed;
-    Vector2 position;
+    List<GameObject> enemies = new List<GameObject>();
+    [SerializeField] GameObject pref_Enemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        position = transform.position;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        position.x += speed;
-        transform.position = position;
+        
     }
 }
