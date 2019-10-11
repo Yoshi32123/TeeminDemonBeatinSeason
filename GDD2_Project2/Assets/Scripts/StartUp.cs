@@ -18,6 +18,10 @@ public class StartUp : MonoBehaviour
 
     public GameObject templateSquare;
 
+    public Sprite redSprite;
+    public Sprite blueSprite;
+    public Sprite greenSprite;
+
     #endregion
 
     // Start is called before the first frame update
@@ -29,7 +33,7 @@ public class StartUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChangeColor(starterTiles[1, 1]);
+        MouseClickCheck();
     }
 
     /// <summary>
@@ -70,10 +74,26 @@ public class StartUp : MonoBehaviour
     /// <param name="clickedObject"> The object that was clicked on </param>
     public void ChangeColor(GameObject clickedObject)
     {
-        // gets the renderer for the object
-        Renderer changer = clickedObject.GetComponent<Renderer>();
+        // gets sprite renderer and changes the sprite
+        clickedObject.GetComponent<SpriteRenderer>().sprite = greenSprite;
+    }
 
-        // changes the material color
-        changer.material.SetColor("_Color", Color.green);
+    /// <summary>
+    /// Detects mouse click and checks for collision with any boxes
+    /// </summary>
+    public void MouseClickCheck()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                Debug.DrawLine(ray.origin, hit.point);
+                Debug.Log("Hit object: " + hit.collider.gameObject.name);
+                ChangeColor(hit.collider.gameObject);
+            }
+        }
     }
 }
