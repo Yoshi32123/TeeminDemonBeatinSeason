@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
         time -= Time.deltaTime;
         if(time <= 0)
         {
-            enemies.Add(Instantiate(pref_Enemy, new Vector3(-10, 0, 0), Quaternion.identity));
+            enemies.Add(Instantiate(pref_Enemy, new Vector3(-10, Random.Range(-5, 5), 0), Quaternion.identity));
             time = timePerSpawn;
         }
     }
