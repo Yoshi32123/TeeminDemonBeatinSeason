@@ -166,6 +166,9 @@ MonoBehaviour:
   tileDifferential: 1.05
   templateSquare: {fileID: 4131744306534458732, guid: cc2f2ef916e9e84408f68f158c9a16bb,
     type: 3}
+  redSprite: {fileID: 21300000, guid: e61f25574570a1147b88a1e87c6e874e, type: 3}
+  blueSprite: {fileID: 21300000, guid: cc19c065de13cfa4caa33c3e34b3323c, type: 3}
+  greenSprite: {fileID: 21300000, guid: 8f91e59423afe8b4294f4034227777eb, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
