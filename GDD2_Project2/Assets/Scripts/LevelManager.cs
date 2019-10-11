@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = timePerSpawn;
+        time = 0;
     }
 
     // Update is called once per frame
@@ -24,6 +24,20 @@ public class LevelManager : MonoBehaviour
         {
             enemies.Add(Instantiate(pref_Enemy, new Vector3(-10, Random.Range(-5, 5), 0), Quaternion.identity));
             time = timePerSpawn;
+        }
+
+        ClearDeadEnemies();
+    }
+
+    void ClearDeadEnemies()
+    {
+        for(int i = enemies.Count - 1; i >= 0; i--)
+        {
+            if(enemies[i].GetComponent<Enemy>().GetHealth() <= 0)
+            {
+                Destroy(enemies[i]);
+                enemies.RemoveAt(i);
+            }
         }
     }
 

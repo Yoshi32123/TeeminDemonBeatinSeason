@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] float range;
     [SerializeField] LevelManager levelManager;
+
+    [SerializeField] float range;
+    [SerializeField] float timeToCoolDown;
+    [SerializeField] int damage;
+    float cooldownTimer;
 
     GameObject target;
 
@@ -13,15 +17,26 @@ public class Tower : MonoBehaviour
     void Start()
     {
         levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        cooldownTimer = timeToCoolDown;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
+
         target = levelManager.GetClosestEnemy(transform.position, range);
 
         if (target != null)
         {
+            if(cooldownTimer <= 0)
+            {
+                target.GetComponent<Enemy>().TakeDamage(damage);
+                cooldownTimer = timeToCoolDown;
+            }
             Debug.DrawLine(transform.position, target.transform.position);
         }
     }
