@@ -24,6 +24,8 @@ public class TileManager : MonoBehaviour
     public Sprite blueSprite;
     public Sprite greenSprite;
 
+    public int startYIndex;
+    public int endYIndex;
     private GameObject start;
     private GameObject end;
     private GameObject lastTileClicked;
@@ -36,15 +38,15 @@ public class TileManager : MonoBehaviour
         TileStartUp();
 
         // setting up the start and end tiles
-        start = Instantiate(templateSquare, new Vector2(starterTiles[0,1].transform.position.x - tileDifferential, starterTiles[0, 1].transform.position.y), Quaternion.identity);
+        start = Instantiate(templateSquare, new Vector2(starterTiles[0, startYIndex].transform.position.x - tileDifferential, starterTiles[0, startYIndex].transform.position.y), Quaternion.identity);
         ChangeColor(start, greenSprite);
         //finalPath.Add(start);
-        end = Instantiate(templateSquare, new Vector2(starterTiles[xTiles-1, yTiles-2].transform.position.x + tileDifferential, starterTiles[xTiles - 1, yTiles - 2].transform.position.y), Quaternion.identity);
+        end = Instantiate(templateSquare, new Vector2(starterTiles[xTiles-1, endYIndex].transform.position.x + tileDifferential, starterTiles[xTiles - 1, endYIndex].transform.position.y), Quaternion.identity);
         ChangeColor(end, greenSprite);
 
         // setting first choice available
-        ChangeColor(starterTiles[0, 1], greenSprite);
-        lastTileClicked = starterTiles[0, 1];
+        ChangeColor(starterTiles[0, startYIndex], greenSprite);
+        lastTileClicked = starterTiles[0, startYIndex];
     }
 
     // Update is called once per frame
@@ -77,7 +79,7 @@ public class TileManager : MonoBehaviour
         }
 
         // instantiating objects and adding to 2D array
-        for (int i = 0; i < startUpX.Length; i++)
+        for (int i = 0; i < startUpX.Length; i++) 
         {
             for (int j = 0; j < startUpY.Length; j++)
             {
@@ -110,6 +112,7 @@ public class TileManager : MonoBehaviour
 
             if (hit.collider != null)
             {
+                // checks if tile is valid for path addition
                 if (ValidPath(hit.collider.gameObject))
                 {
                     lastTileClicked = hit.collider.gameObject;
@@ -142,6 +145,7 @@ public class TileManager : MonoBehaviour
         int xIndex = -1;
         int yIndex = -1;
 
+        // stores indeces for last tile clicked
         for (int i = 0; i < startUpX.Length; i++)
         {
             for (int j = 0; j < startUpY.Length; j++)
@@ -154,20 +158,21 @@ public class TileManager : MonoBehaviour
             }
         }
 
+        // loops through all tiles to determine what the cell should look like
         for (int i = 0; i < startUpX.Length; i++)
         {
             for (int j = 0; j < startUpY.Length; j++)
             {
                 if (starterTiles[i, j].GetComponent<SpriteRenderer>().sprite == greenSprite || starterTiles[i, j] == lastTileClicked)
                 {
-                    // do nothing
+                    continue;
                 }
                 else if (i == xIndex + 1 && j == yIndex || i == xIndex - 1 && j == yIndex || i == xIndex && j == yIndex + 1 || i == xIndex && j == yIndex - 1)
                 {
                     // checks if cell is tower
                     if (/*cell is tower*/false)
                     {
-
+                        //continue;
                     }
                     else
                     {
