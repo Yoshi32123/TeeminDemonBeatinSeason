@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartUp : MonoBehaviour
+public class TileManager : MonoBehaviour
 {
     #region Variables
     // Instantiating Variables
