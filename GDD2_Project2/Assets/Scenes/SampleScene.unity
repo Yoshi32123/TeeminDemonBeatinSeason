@@ -149,18 +149,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8390c680b1e7f44abc95d898152198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xTiles: 16
+  xTiles: 10
   yTiles: 8
-  TopLeftX: -7.95
-  TopLeftY: 3.75
-  tileDifferential: 1.05
+  finalPath: []
   templateSquare: {fileID: 4131744306534458732, guid: cc2f2ef916e9e84408f68f158c9a16bb,
     type: 3}
   redSprite: {fileID: 21300000, guid: e61f25574570a1147b88a1e87c6e874e, type: 3}
   blueSprite: {fileID: 21300000, guid: cc19c065de13cfa4caa33c3e34b3323c, type: 3}
   greenSprite: {fileID: 21300000, guid: 8f91e59423afe8b4294f4034227777eb, type: 3}
-  startYIndex: 2
-  endYIndex: 2
+  startYIndex: 6
+  endYIndex: 0
 --- !u!4 &332361496
 Transform:
   m_ObjectHideFlags: 0

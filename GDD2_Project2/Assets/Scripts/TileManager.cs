@@ -12,11 +12,13 @@ public class TileManager : MonoBehaviour
     private float[] startUpY;
     private GameObject[,] starterTiles;
 
-    private List<GameObject> finalPath;
+    public List<GameObject> finalPath = new List<GameObject>();
 
-    public float TopLeftX;
-    public float TopLeftY;
-    public float tileDifferential;
+    private float TopLeftX;
+    private float TopLeftY;
+    private float tileDifferential = 1.05f;
+
+    private bool endHasBeenReached = false;
 
     public GameObject templateSquare;
 
@@ -35,25 +37,63 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DetermineTopLeftXandY();
+
         TileStartUp();
 
         // setting up the start and end tiles
+        StartEndErrorCheck();
         start = Instantiate(templateSquare, new Vector2(starterTiles[0, startYIndex].transform.position.x - tileDifferential, starterTiles[0, startYIndex].transform.position.y), Quaternion.identity);
         ChangeColor(start, greenSprite);
-        //finalPath.Add(start);
         end = Instantiate(templateSquare, new Vector2(starterTiles[xTiles-1, endYIndex].transform.position.x + tileDifferential, starterTiles[xTiles - 1, endYIndex].transform.position.y), Quaternion.identity);
         ChangeColor(end, greenSprite);
 
         // setting first choice available
-        ChangeColor(starterTiles[0, startYIndex], greenSprite);
-        lastTileClicked = starterTiles[0, startYIndex];
+        //ChangeColor(starterTiles[0, startYIndex], blueSprite);
+        lastTileClicked = start;
     }
 
     // Update is called once per frame
     void Update()
     {
-        MouseClickCheck();
+        ReachedEnd();
+
+        // if the end has been reached, stop detecting input and updates
+        if (!endHasBeenReached && Input.GetMouseButtonDown(0))
+        {
+            MouseClickCheck();
+        }
+
         NextPathChoices();
+
+    }
+
+    /// <summary>
+    /// Sets the values for topLeftY and topLeftX that will build the array
+    /// </summary>
+    public void DetermineTopLeftXandY()
+    {
+        // if x tiles are even
+        if (xTiles%2 == 0)
+        {
+            TopLeftX = xTiles / 2 * -tileDifferential;
+        }
+        // if x tiles are odd
+        else
+        {
+            TopLeftX = ((xTiles - 1) / 2 * -tileDifferential) - tileDifferential / 2;
+        }
+
+        // if y tiles are even
+        if (yTiles % 2 == 0)
+        {
+            TopLeftY = (yTiles / 2 * tileDifferential) - (tileDifferential * 2);
+        }
+        // if y tiles are odd
+        else
+        {
+            TopLeftY = ((yTiles - 1) / 2 * tileDifferential) - (tileDifferential * 2);
+        }
     }
 
     /// <summary>
@@ -61,6 +101,16 @@ public class TileManager : MonoBehaviour
     /// </summary>
     public void TileStartUp()
     {
+        // error checking
+        if (xTiles < 0)
+            xTiles = 5;
+        if (yTiles < 0)
+            yTiles = 5;
+        if (xTiles > 16)
+            xTiles = 16;
+        if (yTiles > 7)
+            yTiles = 7;
+
         // setting up matrix values
         startUpX = new float[xTiles];
         startUpY = new float[yTiles];
@@ -103,23 +153,22 @@ public class TileManager : MonoBehaviour
     /// </summary>
     public void MouseClickCheck()
     {
-        if (Input.GetMouseButtonDown(0))
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+        if (hit.collider != null)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
-            if (hit.collider != null)
+            // checks if tile is valid for path addition
+            if (ValidPath(hit.collider.gameObject))
             {
-                // checks if tile is valid for path addition
-                if (ValidPath(hit.collider.gameObject))
-                {
-                    lastTileClicked = hit.collider.gameObject;
-                    ChangeColor(hit.collider.gameObject, greenSprite);
-                }
+                finalPath.Add(lastTileClicked);
+                lastTileClicked = hit.collider.gameObject;
+                ChangeColor(hit.collider.gameObject, greenSprite);
             }
         }
+
     }
 
     /// <summary>
@@ -167,7 +216,7 @@ public class TileManager : MonoBehaviour
                 {
                     continue;
                 }
-                else if (i == xIndex + 1 && j == yIndex || i == xIndex - 1 && j == yIndex || i == xIndex && j == yIndex + 1 || i == xIndex && j == yIndex - 1)
+                else if ((i == xIndex + 1 && j == yIndex || i == xIndex - 1 && j == yIndex || i == xIndex && j == yIndex + 1 || i == xIndex && j == yIndex - 1 || i == 0 && j == startYIndex) && !endHasBeenReached)
                 {
                     // checks if cell is tower
                     if (/*cell is tower*/false)
@@ -185,5 +234,54 @@ public class TileManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Check if the end has been reached
+    /// </summary>
+    public void ReachedEnd()
+    {
+        int xIndex = -1;
+        int yIndex = -1;
+
+        // stores indeces for last tile clicked
+        for (int i = 0; i < startUpX.Length; i++)
+        {
+            for (int j = 0; j < startUpY.Length; j++)
+            {
+                if (lastTileClicked == starterTiles[i, j])
+                {
+                    xIndex = i;
+                    yIndex = j;
+                }
+            }
+        }
+
+        // checks if tile is next to the end
+        if (xIndex == startUpX.Length - 1 && yIndex == endYIndex)
+        {
+            finalPath.Add(lastTileClicked);
+            finalPath.Add(end);
+            endHasBeenReached = true;
+        }
+    }
+
+    /// <summary>
+    /// Checks values for start and end y index. If too small, set as 0. If too big, set as max
+    /// </summary>
+    /// <returns></returns>
+    public void StartEndErrorCheck()
+    {
+        // below 0
+        if (startYIndex < 0)
+            startYIndex = 0;
+        if (endYIndex < 0)
+            endYIndex = 0;
+
+        // above max
+        if (startYIndex >= yTiles)
+            startYIndex = yTiles - 1;
+        if (endYIndex >= yTiles)
+            endYIndex = yTiles - 1;
     }
 }
