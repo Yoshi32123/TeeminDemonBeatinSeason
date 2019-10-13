@@ -159,9 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8390c680b1e7f44abc95d898152198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xTiles: 18
+  xTiles: 16
   yTiles: 8
-  TopLeftX: -9
+  TopLeftX: -7.95
   TopLeftY: 3.75
   tileDifferential: 1.05
   templateSquare: {fileID: 4131744306534458732, guid: cc2f2ef916e9e84408f68f158c9a16bb,
