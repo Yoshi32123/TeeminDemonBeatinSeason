@@ -56,11 +56,14 @@ public class SceneSwitcher : MonoBehaviour
      */
     public void UnloadAdditiveScene()
     {
+        string additiveScene = SceneManager.GetActiveScene().name;
+        string mainScene = PlayerPrefs.GetString("previousScene");
+
         //main loaded scene
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(PlayerPrefs.GetString("previousScene")));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(mainScene));
 
         //the additive scene
-        PlayerPrefs.SetString("previousScene", SceneManager.GetActiveScene().name);
-        SceneManager.UnloadSceneAsync(PlayerPrefs.GetString("previousScene"));
+        PlayerPrefs.SetString("previousScene", additiveScene);
+        SceneManager.UnloadSceneAsync(additiveScene);
     }
 }
