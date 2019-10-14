@@ -7,10 +7,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed;
 
     [SerializeField] int maxHealth;
+    [SerializeField] float predictiveRadius; //how far away from the exact center of the tile does the enemy need to be before seeking out the next tile?
     int health = 10;
     public int GetHealth() { return health; }
 
-    Vector2 position;
+    Vector3 position;
+    Vector3 direction;
+    Vector3 next;
+    List<Vector3> pathway = new List<Vector3>();
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +27,22 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        position.x += speed;
+
+        direction = Vector3.Normalize(next - position);
+        position += direction * speed;
         transform.position = position;
+
+        if(Vector3.SqrMagnitude(next - position) < predictiveRadius * predictiveRadius)
+        {
+            next = pathway[pathway.IndexOf(next) + 1];
+        }
+
+    }
+
+    public void SetPathway(List<Vector3> path)
+    {
+        pathway = path;
+        next = pathway[0];
     }
 
     public void TakeDamage(int damage)

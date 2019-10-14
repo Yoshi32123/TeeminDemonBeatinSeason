@@ -12,13 +12,14 @@ public class TileManager : MonoBehaviour
     private float[] startUpY;
     private GameObject[,] starterTiles;
 
-    public List<GameObject> finalPath = new List<GameObject>();
+    public List<Vector3> finalPath = new List<Vector3>();
 
     private float TopLeftX;
     private float TopLeftY;
     private float tileDifferential = 1.05f;
 
     private bool endHasBeenReached = false;
+    public bool GetEndHasBeenReached() { return endHasBeenReached; }
 
     public GameObject templateSquare;
 
@@ -31,6 +32,9 @@ public class TileManager : MonoBehaviour
     private GameObject start;
     private GameObject end;
     private GameObject lastTileClicked;
+
+    public GameObject GetStartTile() { return start; }
+    public GameObject GetEndTile() { return end; }
 
     #endregion
 
@@ -163,7 +167,7 @@ public class TileManager : MonoBehaviour
             // checks if tile is valid for path addition
             if (ValidPath(hit.collider.gameObject))
             {
-                finalPath.Add(lastTileClicked);
+                finalPath.Add(lastTileClicked.transform.position);
                 lastTileClicked = hit.collider.gameObject;
                 ChangeColor(hit.collider.gameObject, greenSprite);
             }
@@ -260,8 +264,8 @@ public class TileManager : MonoBehaviour
         // checks if tile is next to the end
         if (xIndex == startUpX.Length - 1 && yIndex == endYIndex)
         {
-            finalPath.Add(lastTileClicked);
-            finalPath.Add(end);
+            finalPath.Add(lastTileClicked.transform.position);
+            finalPath.Add(end.transform.position);
             endHasBeenReached = true;
         }
     }

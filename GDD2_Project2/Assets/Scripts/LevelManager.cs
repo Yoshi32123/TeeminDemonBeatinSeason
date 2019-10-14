@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
     List<GameObject> enemies = new List<GameObject>();
     [SerializeField] GameObject pref_Enemy;
 
+    TileManager tileManager;
+
     float time;
     [SerializeField] float timePerSpawn;
 
@@ -14,19 +16,25 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         time = 0;
+        tileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
-        if(time <= 0)
+        if (tileManager.GetEndHasBeenReached())
         {
-            enemies.Add(Instantiate(pref_Enemy, new Vector3(-10, Random.Range(-5, 5), 0), Quaternion.identity));
-            time = timePerSpawn;
-        }
+            time -= Time.deltaTime;
+            if (time <= 0)
+            {
+                GameObject newEnemy = Instantiate(pref_Enemy, tileManager.GetStartTile().transform.position, Quaternion.identity);
+                newEnemy.GetComponent<Enemy>().SetPathway(tileManager.finalPath);
+                enemies.Add(newEnemy);
+                time = timePerSpawn;
+            }
 
-        ClearDeadEnemies();
+            ClearDeadEnemies();
+        }
     }
 
     void ClearDeadEnemies()
