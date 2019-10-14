@@ -12,7 +12,7 @@ public class TileManager : MonoBehaviour
     private float[] startUpY;
     private GameObject[,] starterTiles;
 
-    public List<Vector3> finalPath = new List<Vector3>();
+    public List<Vector2> finalPath = new List<Vector2>();
 
     private float TopLeftX;
     private float TopLeftY;

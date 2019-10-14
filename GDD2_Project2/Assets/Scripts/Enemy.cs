@@ -11,10 +11,15 @@ public class Enemy : MonoBehaviour
     int health = 10;
     public int GetHealth() { return health; }
 
+    [SerializeField] float mass;
+    [SerializeField] float maxVelocity;
+
     Vector3 position;
     Vector3 direction;
+
+
     Vector3 next;
-    List<Vector3> pathway = new List<Vector3>();
+    List<Vector2> pathway = new List<Vector2>();
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +32,23 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        direction = Vector3.Normalize(next - position);
+        direction = next - position;
         position += direction * speed;
         transform.position = position;
 
         if(Vector3.SqrMagnitude(next - position) < predictiveRadius * predictiveRadius)
         {
+            if(pathway.IndexOf(next) == pathway.Count - 1)
+            {
+                Debug.Log("enemy made it");
+                health = 0;
+            }
             next = pathway[pathway.IndexOf(next) + 1];
         }
 
     }
 
-    public void SetPathway(List<Vector3> path)
+    public void SetPathway(List<Vector2> path)
     {
         pathway = path;
         next = pathway[0];

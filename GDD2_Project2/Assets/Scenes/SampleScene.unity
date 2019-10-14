@@ -156,7 +156,7 @@ MonoBehaviour:
     type: 3}
   redSprite: {fileID: 21300000, guid: e61f25574570a1147b88a1e87c6e874e, type: 3}
   blueSprite: {fileID: 21300000, guid: cc19c065de13cfa4caa33c3e34b3323c, type: 3}
-  greenSprite: {fileID: 21300000, guid: be7cc4a5d9366ea419de13db0f2e28f3, type: 3}
+  greenSprite: {fileID: 21300000, guid: 8f91e59423afe8b4294f4034227777eb, type: 3}
   startYIndex: 6
   endYIndex: 0
 --- !u!4 &332361496

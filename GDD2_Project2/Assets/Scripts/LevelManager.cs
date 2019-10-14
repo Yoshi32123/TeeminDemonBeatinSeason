@@ -33,8 +33,8 @@ public class LevelManager : MonoBehaviour
                 time = timePerSpawn;
             }
 
-            ClearDeadEnemies();
         }
+        ClearDeadEnemies();
     }
 
     void ClearDeadEnemies()

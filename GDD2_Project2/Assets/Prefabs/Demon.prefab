@@ -95,3 +95,5 @@ MonoBehaviour:
   speed: 0.02
   maxHealth: 10
   predictiveRadius: 0.2
+  mass: 1
+  maxVelocity: 0.01
