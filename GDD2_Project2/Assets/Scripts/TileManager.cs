@@ -21,8 +21,8 @@ public class TileManager : MonoBehaviour
     private bool endHasBeenReached = false;
     public bool GetEndHasBeenReached() { return endHasBeenReached; }
 
+    public GameObject tower;
     public GameObject templateSquare;
-
     public Sprite redSprite;
     public Sprite blueSprite;
     public Sprite greenSprite;
@@ -35,6 +35,9 @@ public class TileManager : MonoBehaviour
 
     public GameObject GetStartTile() { return start; }
     public GameObject GetEndTile() { return end; }
+
+    TowerBuilder towerbuilder;
+    private List<int[]> towers;
 
     #endregion
 
@@ -53,8 +56,12 @@ public class TileManager : MonoBehaviour
         ChangeColor(end, greenSprite);
 
         // setting first choice available
-        //ChangeColor(starterTiles[0, startYIndex], blueSprite);
         lastTileClicked = start;
+
+        // tower initialization
+        towerbuilder = gameObject.GetComponent<TowerBuilder>();
+        towerbuilder.Setter();
+        SetTowersInGrid();
     }
 
     // Update is called once per frame
@@ -216,26 +223,23 @@ public class TileManager : MonoBehaviour
         {
             for (int j = 0; j < startUpY.Length; j++)
             {
-                if (starterTiles[i, j].GetComponent<SpriteRenderer>().sprite == greenSprite || starterTiles[i, j] == lastTileClicked)
+                // checks if cell is tower
+                if (!(starterTiles[i, j].tag == "Tower"))
                 {
-                    continue;
-                }
-                else if ((i == xIndex + 1 && j == yIndex || i == xIndex - 1 && j == yIndex || i == xIndex && j == yIndex + 1 || i == xIndex && j == yIndex - 1 || i == 0 && j == startYIndex) && !endHasBeenReached)
-                {
-                    // checks if cell is tower
-                    if (/*cell is tower*/false)
+                    if (starterTiles[i, j].GetComponent<SpriteRenderer>().sprite == greenSprite || starterTiles[i, j] == lastTileClicked)
                     {
-                        //continue;
+                        continue;
                     }
-                    else
+                    else if ((i == xIndex + 1 && j == yIndex || i == xIndex - 1 && j == yIndex || i == xIndex && j == yIndex + 1 || i == xIndex && j == yIndex - 1 || i == 0 && j == startYIndex) && !endHasBeenReached)
                     {
                         starterTiles[i, j].GetComponent<SpriteRenderer>().sprite = blueSprite;
                     }
+                    else
+                    {
+                        starterTiles[i, j].GetComponent<SpriteRenderer>().sprite = redSprite;
+                    }
                 }
-                else
-                {
-                    starterTiles[i, j].GetComponent<SpriteRenderer>().sprite = redSprite;
-                }
+                
             }
         }
     }
@@ -287,5 +291,21 @@ public class TileManager : MonoBehaviour
             startYIndex = yTiles - 1;
         if (endYIndex >= yTiles)
             endYIndex = yTiles - 1;
+    }
+
+    /// <summary>
+    /// Pulls tower indices from TowerBuilder script
+    /// </summary>
+    public void SetTowersInGrid()
+    {
+        // Setting towers into matrix
+        towers = towerbuilder.towerIndices;
+
+        for (int i = 0; i < towers.Count; i++)
+        {
+            GameObject towerSave = Instantiate(tower, starterTiles[towers[i][0], towers[i][1]].transform.position, Quaternion.identity);
+            Destroy(starterTiles[towers[i][0], towers[i][1]]);
+            starterTiles[towers[i][0], towers[i][1]] = towerSave;
+        }
     }
 }
