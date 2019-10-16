@@ -30,6 +30,15 @@ public class TowerBuilder : MonoBehaviour
             case 2:
                 Level2Towers();
                 break;
+            case 3:
+                Level3Towers();
+                break;
+            case 4:
+                Level4Towers();
+                break;
+            case 5:
+                Level5Towers();
+                break;
             default:
                 // joe mama
                 break;
@@ -45,5 +54,20 @@ public class TowerBuilder : MonoBehaviour
     {
         towerIndices.Add(new int[] { 2, 1 });
         towerIndices.Add(new int[] { 2, 3 });
+    }
+
+    public void Level3Towers()
+    {
+        towerIndices.Add(new int[] { 2, 1 });
+    }
+
+    public void Level4Towers()
+    {
+        towerIndices.Add(new int[] { 2, 1 });
+    }
+
+    public void Level5Towers()
+    {
+        towerIndices.Add(new int[] { 2, 1 });
     }
 }

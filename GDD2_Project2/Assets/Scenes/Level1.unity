@@ -158,7 +158,7 @@ MonoBehaviour:
     type: 3}
   redSprite: {fileID: 21300000, guid: e61f25574570a1147b88a1e87c6e874e, type: 3}
   blueSprite: {fileID: 21300000, guid: cc19c065de13cfa4caa33c3e34b3323c, type: 3}
-  greenSprite: {fileID: 21300000, guid: 8f91e59423afe8b4294f4034227777eb, type: 3}
+  greenSprite: {fileID: 21300000, guid: be7cc4a5d9366ea419de13db0f2e28f3, type: 3}
   startYIndex: 4
   endYIndex: 4
 --- !u!4 &350560198
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pref_Enemy: {fileID: 6704035097076527523, guid: 899285c57d020b84c9dc9e201ad4465f,
     type: 3}
-  timePerSpawn: 1
+  timePerSpawn: 2
 --- !u!4 &970095764
 Transform:
   m_ObjectHideFlags: 0

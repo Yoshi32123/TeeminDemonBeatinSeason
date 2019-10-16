@@ -152,6 +152,7 @@ MonoBehaviour:
   xTiles: 10
   yTiles: 8
   finalPath: []
+  tower: {fileID: 2408496795696589102, guid: aaa4710ffe26a3e44a6a4638ebefb1a3, type: 3}
   templateSquare: {fileID: 4131744306534458732, guid: cc2f2ef916e9e84408f68f158c9a16bb,
     type: 3}
   redSprite: {fileID: 21300000, guid: e61f25574570a1147b88a1e87c6e874e, type: 3}
