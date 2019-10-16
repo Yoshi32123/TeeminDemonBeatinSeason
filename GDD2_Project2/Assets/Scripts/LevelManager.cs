@@ -27,7 +27,10 @@ public class LevelManager : MonoBehaviour
             time -= Time.deltaTime;
             if (time <= 0)
             {
-                GameObject newEnemy = Instantiate(pref_Enemy, tileManager.GetStartTile().transform.position, Quaternion.identity);
+                GameObject newEnemy = Instantiate(
+                    pref_Enemy, 
+                    new Vector3(tileManager.GetStartTile().transform.position.x, tileManager.GetStartTile().transform.position.y, -0.00001f), //need to set z to be close to camera so enemy doesnt get hidden by tiles
+                    Quaternion.identity);
                 newEnemy.GetComponent<Enemy>().SetPathway(tileManager.finalPath);
                 enemies.Add(newEnemy);
                 time = timePerSpawn;
