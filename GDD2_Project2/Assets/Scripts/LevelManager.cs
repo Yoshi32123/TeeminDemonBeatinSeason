@@ -27,9 +27,10 @@ public class LevelManager : MonoBehaviour
             time -= Time.deltaTime;
             if (time <= 0)
             {
+                Vector3 startPosition = tileManager.GetStartTile().transform.position;
                 GameObject newEnemy = Instantiate(
                     pref_Enemy, 
-                    new Vector3(tileManager.GetStartTile().transform.position.x, tileManager.GetStartTile().transform.position.y, -0.00001f), //need to set z to be close to camera so enemy doesnt get hidden by tiles
+                    new Vector3(startPosition.x, startPosition.y, -0.1f), //need to set z to be closer to camera so enemy doesnt get hidden by tiles
                     Quaternion.identity);
                 newEnemy.GetComponent<Enemy>().SetPathway(tileManager.finalPath);
                 enemies.Add(newEnemy);
