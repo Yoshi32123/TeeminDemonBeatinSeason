@@ -6,9 +6,9 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] LevelManager levelManager;
 
-    [SerializeField] float range;
-    [SerializeField] float timeToCoolDown;
-    [SerializeField] int damage;
+    [SerializeField] float range = 0.0f;
+    [SerializeField] float timeToCoolDown = 0.0f;
+    [SerializeField] int damage = 0;
     float cooldownTimer;
 
     GameObject target;
@@ -35,6 +35,7 @@ public class Tower : MonoBehaviour
             if(cooldownTimer <= 0)
             {
                 target.GetComponent<Enemy>().TakeDamage(damage);
+                levelManager.AddScore(100); //TODO: change score adding to be a function of corresponding enemy's health
                 cooldownTimer = timeToCoolDown;
             }
             Debug.DrawLine(transform.position, target.transform.position);

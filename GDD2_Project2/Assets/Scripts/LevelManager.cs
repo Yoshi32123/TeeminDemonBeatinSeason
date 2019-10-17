@@ -5,12 +5,19 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     List<GameObject> enemies = new List<GameObject>();
-    [SerializeField] GameObject pref_Enemy;
+    [SerializeField] GameObject pref_Enemy = null;
 
     TileManager tileManager;
 
     float time;
-    [SerializeField] float timePerSpawn;
+    [SerializeField] float timePerSpawn = 0.0f;
+
+    [SerializeField] int numberOfEnemies = 0; //how many enemies in total for this level?
+    int currentEnemies = 0; //how many enemies have we spawned at any given time
+
+    int score = 0;
+    public void AddScore(int value) { score += value; }
+    [SerializeField] int[] starThresholds = new int[3]; //how many points are needed to earn each star
 
     // Start is called before the first frame update
     void Start()
@@ -25,15 +32,16 @@ public class LevelManager : MonoBehaviour
         if (tileManager.GetEndHasBeenReached())
         {
             time -= Time.deltaTime;
-            if (time <= 0)
+            if (time <= 0 && currentEnemies < numberOfEnemies)
             {
                 Vector3 startPosition = tileManager.GetStartTile().transform.position;
                 GameObject newEnemy = Instantiate(
                     pref_Enemy, 
-                    new Vector3(startPosition.x, startPosition.y, -0.1f), //need to set z to be closer to camera so enemy doesnt get hidden by tiles
+                    new Vector2(startPosition.x, startPosition.y),
                     Quaternion.identity);
                 newEnemy.GetComponent<Enemy>().SetPathway(tileManager.finalPath);
                 enemies.Add(newEnemy);
+                currentEnemies++;
                 time = timePerSpawn;
             }
 

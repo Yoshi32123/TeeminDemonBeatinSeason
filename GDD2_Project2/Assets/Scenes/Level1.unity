@@ -404,6 +404,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aedb500351df77c43be3fc8c3c529ba0, type: 3}
 --- !u!1 &970095762
