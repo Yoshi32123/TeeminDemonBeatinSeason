@@ -458,6 +458,8 @@ MonoBehaviour:
   pref_Enemy: {fileID: 6704035097076527523, guid: 899285c57d020b84c9dc9e201ad4465f,
     type: 3}
   timePerSpawn: 2
+  numberOfEnemies: 0
+  starThresholds: 000000000000000000000000
 --- !u!4 &970095764
 Transform:
   m_ObjectHideFlags: 0
