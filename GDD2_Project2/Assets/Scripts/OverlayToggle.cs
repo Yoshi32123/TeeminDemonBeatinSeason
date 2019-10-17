@@ -5,9 +5,11 @@ using UnityEngine;
 public class OverlayToggle : MonoBehaviour
 {
     bool Paused = false;
+    bool Options = false;
     bool Win = false;
     bool Lost = false;
     public GameObject PausedCanvas;
+    public GameObject OptionsCanvas;
     public GameObject WinCanvas;
     public GameObject LostCanvas;
 
@@ -22,17 +24,19 @@ public class OverlayToggle : MonoBehaviour
     {
         Paused = !Paused;
 
-        if (Paused)
-        {
-            //shows pause screen
-            PausedCanvas.SetActive(true);
-        }
-        else
-        {
-            //hides pause screen
-            PausedCanvas.SetActive(false);
-        }
+        //shows/hides pause screen
+        PausedCanvas.SetActive(Paused);
     }
+
+    ///<summary>alternates the option state</summary>
+    public void ToggleOptions()
+    {
+        Options = !Options;
+
+        //shows/hides options screen
+        OptionsCanvas.SetActive(Options);
+    }
+
 
     ///<summary>turns on win state</summary>
     public void WonGame()
