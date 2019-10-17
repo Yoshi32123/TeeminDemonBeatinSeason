@@ -13,6 +13,7 @@ public class TileManager : MonoBehaviour
     private GameObject[,] starterTiles;
 
     public List<Vector2> finalPath = new List<Vector2>();
+    public List<int> finalPathSpriteBuilder = new List<int>();
 
     private float TopLeftX;
     private float TopLeftY;
@@ -27,11 +28,19 @@ public class TileManager : MonoBehaviour
     public Sprite blueSprite;
     public Sprite greenSprite;
 
+    public Sprite horizontalPath;
+    public Sprite turn_downLeft;
+    public Sprite turn_upLeft;
+    public Sprite turn_downRight;
+    public Sprite turn_upRight;
+    public Sprite verticalPath;
+
     public int startYIndex;
     public int endYIndex;
     private GameObject start;
     private GameObject end;
     private GameObject lastTileClicked;
+    private GameObject twoTilesAgo;
 
     public GameObject GetStartTile() { return start; }
     public GameObject GetEndTile() { return end; }
@@ -52,6 +61,7 @@ public class TileManager : MonoBehaviour
         StartEndErrorCheck();
         start = Instantiate(templateSquare, new Vector2(starterTiles[0, startYIndex].transform.position.x - tileDifferential, starterTiles[0, startYIndex].transform.position.y), Quaternion.identity);
         ChangeColor(start, greenSprite);
+        finalPathSpriteBuilder.Add(0);
         end = Instantiate(templateSquare, new Vector2(starterTiles[xTiles-1, endYIndex].transform.position.x + tileDifferential, starterTiles[xTiles - 1, endYIndex].transform.position.y), Quaternion.identity);
         ChangeColor(end, greenSprite);
 
@@ -175,6 +185,13 @@ public class TileManager : MonoBehaviour
             if (ValidPath(hit.collider.gameObject))
             {
                 finalPath.Add(lastTileClicked.transform.position);
+
+                if (twoTilesAgo != null)
+                {
+                    SetCorrectSprites(hit.collider.gameObject);
+                }
+
+                twoTilesAgo = lastTileClicked;
                 lastTileClicked = hit.collider.gameObject;
                 ChangeColor(hit.collider.gameObject, greenSprite);
             }
@@ -226,7 +243,7 @@ public class TileManager : MonoBehaviour
                 // checks if cell is tower
                 if (!(starterTiles[i, j].tag == "Tower"))
                 {
-                    if (starterTiles[i, j].GetComponent<SpriteRenderer>().sprite == greenSprite || starterTiles[i, j] == lastTileClicked)
+                    if (starterTiles[i, j].GetComponent<SpriteRenderer>().sprite == greenSprite || starterTiles[i, j] == lastTileClicked || finalPath.Contains(starterTiles[i,j].transform.position))
                     {
                         continue;
                     }
@@ -306,6 +323,131 @@ public class TileManager : MonoBehaviour
             GameObject towerSave = Instantiate(tower, starterTiles[towers[i][0], towers[i][1]].transform.position, Quaternion.identity);
             Destroy(starterTiles[towers[i][0], towers[i][1]]);
             starterTiles[towers[i][0], towers[i][1]] = towerSave;
+        }
+    }
+
+    /// <summary>
+    /// Sets the correct sprite for the current path
+    /// </summary>
+    /// <param name="hit"></param>
+    public void SetCorrectSprites(GameObject hit)
+    {
+        // index storage
+        int hitX = -1;
+        int hitY = -1;
+        int lastX = -1;
+        int lastY = -1;
+        int twoAgoX = -1;
+        int twoAgoY = -1;
+
+        // finds the index of the new hit and last tile
+        for (int i = 0; i < startUpX.Length; i++)
+        {
+            for (int j = 0; j < startUpY.Length; j++)
+            {
+                if (starterTiles[i,j] == hit)
+                {
+                    hitX = i;
+                    hitY = j;
+                }
+
+                if (starterTiles[i, j] == lastTileClicked)
+                {
+                    lastX = i;
+                    lastY = j;
+                }
+
+                if (starterTiles[i,j] == twoTilesAgo)
+                {
+                    twoAgoX = i;
+                    twoAgoY = j;
+                }
+            }
+        }
+
+        ChangeColor(starterTiles[lastX, lastY], horizontalPath);
+        ChangeColor(starterTiles[lastX, lastY], turn_upRight);
+        ChangeColor(starterTiles[lastX, lastY], turn_upLeft);
+        ChangeColor(starterTiles[lastX, lastY], turn_downRight);
+        ChangeColor(starterTiles[lastX, lastY], turn_downLeft);
+        ChangeColor(starterTiles[lastX, lastY], verticalPath);
+
+        // ---- finds out where lastTileClicked is compared to the new hit ----
+        // __ then right
+        if (lastX + 1 == hitX && lastY == hitY)
+        {
+            // right then right
+            if (twoAgoX + 1 == lastX && twoAgoY == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], horizontalPath);
+            }
+            // up then right
+            else if (twoAgoX == lastX && twoAgoY + 1 == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], turn_upRight);
+            }
+            // down then right
+            else if (twoAgoX == lastX && twoAgoY - 1 == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], turn_downRight);
+            }
+        }
+        // __ then left
+        else if (lastX - 1 == hitX && lastY == hitY)
+        {
+            // left then left
+            if (twoAgoX - 1 == lastX && twoAgoY == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], horizontalPath);
+            }
+            // up then left
+            else if (twoAgoX == lastX && twoAgoY + 1 == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], turn_upLeft);
+            }
+            // down then left
+            else if (twoAgoX == lastX && twoAgoY - 1 == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], turn_downLeft);
+            }
+        }
+        // __ then up
+        else if (lastX == hitX && lastY + 1 == hitY)
+        {
+            // right then up
+            if (twoAgoX + 1 == lastX && twoAgoY == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], turn_downLeft);
+            }
+            // left then up
+            else if (twoAgoX - 1 == lastX && twoAgoY == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], turn_downRight);
+            }
+            // up then up
+            else if (twoAgoX == lastX && twoAgoY + 1 == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], verticalPath);
+            }
+        }
+        // __ then down
+        else if (lastX == hitX && lastY - 1 == hitY)
+        {
+            // right then down
+            if (twoAgoX + 1 == lastX && twoAgoY == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], turn_upLeft);
+            }
+            // left then down
+            else if (twoAgoX - 1 == lastX && twoAgoY == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], turn_upRight);
+            }
+            // down then down
+            else if (twoAgoX == lastX && twoAgoY - 1 == lastY)
+            {
+                ChangeColor(starterTiles[lastX, lastY], verticalPath);
+            }
         }
     }
 }
