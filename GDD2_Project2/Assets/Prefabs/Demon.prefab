@@ -93,5 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.02
-  maxHealth: 10
   predictiveRadius: 0.2
+  maxHealth: 10
+  scorePerHit: 100
