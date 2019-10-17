@@ -709,6 +709,8 @@ MonoBehaviour:
   pref_Enemy: {fileID: 6704035097076527523, guid: 899285c57d020b84c9dc9e201ad4465f,
     type: 3}
   timePerSpawn: 2
+  numberOfEnemies: 4
+  starThresholds: 000000000000000000000000
 --- !u!4 &970095764
 Transform:
   m_ObjectHideFlags: 0
@@ -1636,26 +1638,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1179464834918920652, guid: 3beffa32da47afe48b25293c25b24063,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1685,6 +1667,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179464834732215253, guid: 3beffa32da47afe48b25293c25b24063,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3beffa32da47afe48b25293c25b24063, type: 3}

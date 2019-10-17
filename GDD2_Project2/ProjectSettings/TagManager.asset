@@ -43,3 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tiles
+    uniqueID: 1562534115
+    locked: 0
+  - name: Towers
+    uniqueID: 1311262747
+    locked: 0
+  - name: Enemies
+    uniqueID: 1256116315
+    locked: 0
