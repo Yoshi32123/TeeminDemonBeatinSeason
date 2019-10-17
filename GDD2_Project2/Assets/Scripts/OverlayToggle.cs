@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class OverlayToggle : MonoBehaviour
 {
-    static bool Paused = false;
-    static bool Win = false;
-    static bool Lost = false;
+    bool Paused = false;
+    bool Win = false;
+    bool Lost = false;
     public GameObject PausedCanvas;
     public GameObject WinCanvas;
     public GameObject LostCanvas;

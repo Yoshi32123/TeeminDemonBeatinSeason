@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class BrightnessFunctonality : MonoBehaviour
 {
-    public float GammaCorrection;
-
-
-    void Update()
+    float brightness = 0;
+    public Renderer rend;
+    public void Update()
     {
-        
-        RenderSettings.ambientLight = new Color(GammaCorrection, GammaCorrection, GammaCorrection, 1.0f);
+        Debug.Log(rend.sharedMaterial.GetFloat("_Brightness"));
+        rend.sharedMaterial.SetFloat("_Brightness", brightness);
     }
 
     public void OnValueChanged(float newValue)
     {
-        GammaCorrection = newValue;
+        //range of -0.5f to 0.7f
+        brightness = (newValue*1.2f)-0.5f;
+        rend.sharedMaterial.SetFloat("_Brightness", brightness);
     }
 }

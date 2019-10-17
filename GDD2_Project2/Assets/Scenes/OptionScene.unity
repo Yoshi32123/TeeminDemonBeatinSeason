@@ -510,12 +510,12 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 31
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
@@ -591,6 +591,7 @@ GameObject:
   - component: {fileID: 641324184}
   - component: {fileID: 641324185}
   - component: {fileID: 641324186}
+  - component: {fileID: 641324187}
   m_Layer: 5
   m_Name: BrightnessSlider
   m_TagString: Untagged
@@ -667,7 +668,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.516
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -696,13 +697,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 453507e7b56a2a2459aa5814a3a1ce90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GammaCorrection: 0.5
-  SliderLocation:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+  rend: {fileID: 641324187}
+--- !u!23 &641324187
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641324183}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: dae2b28cdba6b514885bb35893b0753f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &650644809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,7 +2025,6 @@ GameObject:
   - component: {fileID: 1910757431}
   - component: {fileID: 1910757430}
   - component: {fileID: 1910757429}
-  - component: {fileID: 1910757432}
   m_Layer: 0
   m_Name: SceneSwitcher
   m_TagString: Untagged
@@ -2039,18 +2070,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1910757432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910757428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c11c796d3d48744b0084d6cb0fa2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2133557665
 GameObject:
   m_ObjectHideFlags: 0
