@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xTiles: 5
-  yTiles: 6
+  yTiles: 4
   finalPath: []
   finalPathSpriteBuilder: 
   tower: {fileID: 2408496795696589102, guid: aaa4710ffe26a3e44a6a4638ebefb1a3, type: 3}
@@ -172,8 +172,8 @@ MonoBehaviour:
   turn_downRight: {fileID: 21300000, guid: 11a8cae023c00b941809217d388863a0, type: 3}
   turn_upRight: {fileID: 21300000, guid: f36aba75dd1b10843bbd13df665bf88a, type: 3}
   verticalPath: {fileID: 21300000, guid: 4b15301548fb5c6478591e69629ddce9, type: 3}
-  startYIndex: 4
-  endYIndex: 4
+  startYIndex: 2
+  endYIndex: 2
 --- !u!4 &350560198
 Transform:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dcda7185f75594f88406c8aaf3d33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 2
+  currentLevel: 1
 --- !u!1 &372486451
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pref_Enemy: {fileID: 6704035097076527523, guid: 899285c57d020b84c9dc9e201ad4465f,
     type: 3}
-  timePerSpawn: 2
+  timePerSpawn: 4
   numberOfEnemies: 4
   maxHealth: 4
   autoGenStarTresholds: 1
