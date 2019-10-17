@@ -93,6 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
-  range: 3
+  range: 2
   timeToCoolDown: 1
   damage: 3

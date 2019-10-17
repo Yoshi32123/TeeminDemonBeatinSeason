@@ -6,9 +6,9 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] LevelManager levelManager;
 
-    [SerializeField] float range;
-    [SerializeField] float timeToCoolDown;
-    [SerializeField] int damage;
+    [SerializeField] float range = 0.0f;
+    [SerializeField] float timeToCoolDown = 0.0f;
+    [SerializeField] int damage = 0;
     float cooldownTimer;
 
     GameObject target;

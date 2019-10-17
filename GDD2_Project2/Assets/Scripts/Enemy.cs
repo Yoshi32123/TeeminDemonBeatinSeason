@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] float speed = 0.0f;
 
-    [SerializeField] int maxHealth;
-    [SerializeField] float predictiveRadius; //how far away from the exact center of the tile does the enemy need to be before seeking out the next tile?
+    [SerializeField] int maxHealth = 0;
+    [SerializeField] float predictiveRadius = 0.0f; //how far away from the exact center of the tile does the enemy need to be before seeking out the next tile?
     int health = 10;
     public int GetHealth() { return health; }
-
-    [SerializeField] float mass;
-    [SerializeField] float maxVelocity;
 
     Vector3 position;
     Vector3 direction;
@@ -33,17 +30,20 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         direction = next - position;
-        position += direction * speed;
+        position += direction.normalized * speed;
         transform.position = position;
 
         if(Vector3.SqrMagnitude(next - position) < predictiveRadius * predictiveRadius)
         {
-            if(pathway.IndexOf(next) == pathway.Count - 1)
+            if (pathway.IndexOf(next) == pathway.Count - 1)
             {
                 Debug.Log("enemy made it");
                 health = 0;
             }
-            next = pathway[pathway.IndexOf(next) + 1];
+            else
+            {
+                next = pathway[pathway.IndexOf(next) + 1];
+            }
         }
 
     }
