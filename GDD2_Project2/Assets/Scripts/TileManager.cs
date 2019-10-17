@@ -389,7 +389,7 @@ public class TileManager : MonoBehaviour
             // down then right
             else if (twoAgoX == lastX && twoAgoY - 1 == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], turn_downRight);
+                //ChangeColor(starterTiles[lastX, lastY], turn_downRight);
             }
         }
         // __ then left
@@ -398,17 +398,17 @@ public class TileManager : MonoBehaviour
             // left then left
             if (twoAgoX - 1 == lastX && twoAgoY == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], horizontalPath);
+                //ChangeColor(starterTiles[lastX, lastY], horizontalPath);
             }
             // up then left
             else if (twoAgoX == lastX && twoAgoY + 1 == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], turn_upLeft);
+                //ChangeColor(starterTiles[lastX, lastY], turn_upLeft);
             }
             // down then left
             else if (twoAgoX == lastX && twoAgoY - 1 == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], turn_downLeft);
+                //ChangeColor(starterTiles[lastX, lastY], turn_downLeft);
             }
         }
         // __ then up
@@ -417,17 +417,17 @@ public class TileManager : MonoBehaviour
             // right then up
             if (twoAgoX + 1 == lastX && twoAgoY == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], turn_downLeft);
+                //ChangeColor(starterTiles[lastX, lastY], turn_downLeft);
             }
             // left then up
             else if (twoAgoX - 1 == lastX && twoAgoY == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], turn_downRight);
+                //ChangeColor(starterTiles[lastX, lastY], turn_downRight);
             }
             // up then up
             else if (twoAgoX == lastX && twoAgoY + 1 == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], verticalPath);
+                //ChangeColor(starterTiles[lastX, lastY], verticalPath);
             }
         }
         // __ then down
@@ -436,17 +436,17 @@ public class TileManager : MonoBehaviour
             // right then down
             if (twoAgoX + 1 == lastX && twoAgoY == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], turn_upLeft);
+                //ChangeColor(starterTiles[lastX, lastY], turn_upLeft);
             }
             // left then down
             else if (twoAgoX - 1 == lastX && twoAgoY == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], turn_upRight);
+                //ChangeColor(starterTiles[lastX, lastY], turn_upRight);
             }
             // down then down
             else if (twoAgoX == lastX && twoAgoY - 1 == lastY)
             {
-                ChangeColor(starterTiles[lastX, lastY], verticalPath);
+                //ChangeColor(starterTiles[lastX, lastY], verticalPath);
             }
         }
     }

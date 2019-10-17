@@ -95,4 +95,4 @@ MonoBehaviour:
   speed: 0.02
   predictiveRadius: 0.2
   maxHealth: 10
-  scorePerHit: 100
+  health: 10
