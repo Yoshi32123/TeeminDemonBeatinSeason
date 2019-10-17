@@ -35,6 +35,7 @@ public class Tower : MonoBehaviour
             if(cooldownTimer <= 0)
             {
                 target.GetComponent<Enemy>().TakeDamage(damage);
+                levelManager.AddScore(100); //TODO: change score adding to be a function of corresponding enemy's health
                 cooldownTimer = timeToCoolDown;
             }
             Debug.DrawLine(transform.position, target.transform.position);

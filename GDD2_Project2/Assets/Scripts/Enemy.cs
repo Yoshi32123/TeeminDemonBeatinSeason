@@ -11,11 +11,11 @@ public class Enemy : MonoBehaviour
     int health = 10;
     public int GetHealth() { return health; }
 
-    Vector3 position;
-    Vector3 direction;
+    Vector2 position;
+    Vector2 direction;
 
 
-    Vector3 next;
+    Vector2 next;
     List<Vector2> pathway = new List<Vector2>();
 
     // Start is called before the first frame update
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
         if(Vector3.SqrMagnitude(next - position) < predictiveRadius * predictiveRadius)
         {
-            if (pathway.IndexOf(next) == pathway.Count - 1)
+            if (next == pathway[pathway.Count - 1])
             {
                 Debug.Log("enemy made it");
                 health = 0;
