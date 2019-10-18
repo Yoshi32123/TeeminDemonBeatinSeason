@@ -288,7 +288,7 @@ public class TileManager : MonoBehaviour
         }
 
         // checks if tile is next to the end
-        if (xIndex == startUpX.Length - 1 && yIndex == endYIndex)
+        if (xIndex == startUpX.Length - 1 && yIndex == endYIndex && !endHasBeenReached)
         {
             finalPath.Add(lastTileClicked.transform.position);
             finalPath.Add(end.transform.position);
