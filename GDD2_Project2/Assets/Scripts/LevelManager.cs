@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -15,16 +16,21 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int maxHealth = 100;
 
     [Header("Score")]
+    [SerializeField] Text scoreTxt;
+    [SerializeField] GameObject pref_star;
     [SerializeField] bool autoGenStarTresholds;
     [SerializeField] int[] starThresholds;
 
     TileManager tileManager;
 
-    float time;
+    float enemyTimer = 0;
     int currentEnemies = 0; //how many enemies have we spawned at any given time
 
-    int score;
+    int score = 0;
     int stars = 0;
+
+    int enemyInteractions = 0; // counts the number of times an enemy is either killed or makes it to the end. Used to tell when level has ended
+    bool levelComplete = false;
 
     int health = 0;
     public void TakeDamage(int damage) { health -= damage; }
@@ -32,7 +38,6 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = 0;
         health = maxHealth;
         tileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
 
@@ -42,9 +47,9 @@ public class LevelManager : MonoBehaviour
             starThresholds[0] = (int)(numberOfEnemies * Enemy.scorePerKill * 0.70f);
             starThresholds[1] = (int)(numberOfEnemies * Enemy.scorePerKill * 0.85f);
             starThresholds[2] = numberOfEnemies * Enemy.scorePerKill;
-
-            Debug.Log(starThresholds[0] + "," + starThresholds[1] + "," + starThresholds[2]);
         }
+
+        scoreTxt.text = "Score: " + score;
     }
 
     // Update is called once per frame
@@ -52,8 +57,8 @@ public class LevelManager : MonoBehaviour
     {
         if (tileManager.GetEndHasBeenReached())
         {
-            time -= Time.deltaTime;
-            if (time <= 0 && currentEnemies < numberOfEnemies)
+            enemyTimer -= Time.deltaTime;
+            if (enemyTimer <= 0 && currentEnemies < numberOfEnemies)
             {
                 Vector3 startPosition = tileManager.GetStartTile().transform.position;
                 GameObject newEnemy = Instantiate(
@@ -63,7 +68,7 @@ public class LevelManager : MonoBehaviour
                 newEnemy.GetComponent<Enemy>().SetPathway(tileManager.finalPath);
                 enemies.Add(newEnemy);
                 currentEnemies++;
-                time = timePerSpawn;
+                enemyTimer = timePerSpawn;
             }
 
             foreach (GameObject enemy in enemies)
@@ -72,38 +77,50 @@ public class LevelManager : MonoBehaviour
                 {
                     enemy.GetComponent<Enemy>().health = 0;
                     health--;
+                    enemyInteractions++;
                     Debug.Log("health: " + health);
                 }
                 else if(enemy.GetComponent<Enemy>().health <= 0)
                 {
                     score += Enemy.scorePerKill;
+                    enemyInteractions++;
+                    scoreTxt.text = "Score: " + score;
                 }
             }
 
-            if(enemies.Count == 0)
+            if (!levelComplete)
             {
-                if(score >= starThresholds[2])
+                if (enemies.Count == 0 && enemyInteractions == numberOfEnemies)
                 {
-                    //3 stars
-                    stars = 3;
+                    levelComplete = true;
+                    if (score >= starThresholds[2])
+                    {
+                        //3 stars
+                        stars = 3;
+                        Instantiate(pref_star, new Vector2(-1, 4), Quaternion.identity);
+                        Instantiate(pref_star, new Vector2(0, 4), Quaternion.identity);
+                        Instantiate(pref_star, new Vector2(1, 4), Quaternion.identity);
+                    }
+                    else if (score >= starThresholds[1])
+                    {
+                        //2 stars
+                        stars = 2;
+                        Instantiate(pref_star, new Vector2(-0.5f, 4), Quaternion.identity);
+                        Instantiate(pref_star, new Vector2(0.5f, 4), Quaternion.identity);
+                    }
+                    else if (score >= starThresholds[0])
+                    {
+                        //1 star
+                        stars = 1;
+                        Instantiate(pref_star, new Vector2(1, 4), Quaternion.identity);
+                    }
+                    else
+                    {
+                        //no stars
+                        stars = 0;
+                    }
+                    Debug.Log("Stars: " + stars);
                 }
-                else if(score >= starThresholds[1])
-                {
-                    //2 stars
-                    stars = 2;
-                }
-                else if(score >= starThresholds[0])
-                {
-                    //1 star
-                    stars = 1;
-                }
-                else
-                {
-                    //no stars
-                    stars = 0;
-                }
-                Debug.Log("Score: " + score);
-                Debug.Log("Stars: " + stars);
             }
         }
         ClearDeadEnemies();

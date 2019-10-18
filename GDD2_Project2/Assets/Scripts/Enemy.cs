@@ -70,6 +70,6 @@ public class Enemy : MonoBehaviour
     void SetColor()
     {
         Color newColor = new Color(1.0f, 1.0f - (1.0f / health), 1.0f - (1.0f / health));
-        gameObject.GetComponent<SpriteRenderer>().color = newColor;
+        gameObject.GetComponent<SpriteRenderer>().material.color = newColor;
     }
 }

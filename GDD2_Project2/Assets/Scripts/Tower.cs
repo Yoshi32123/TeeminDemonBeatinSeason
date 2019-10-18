@@ -37,7 +37,7 @@ public class Tower : MonoBehaviour
                 target.GetComponent<Enemy>().TakeDamage(damage);
                 cooldownTimer = timeToCoolDown;
             }
-            Debug.DrawLine(transform.position, target.transform.position);
+            Debug.DrawLine(transform.position, target.transform.position, Color.magenta);
         }
     }
 }
