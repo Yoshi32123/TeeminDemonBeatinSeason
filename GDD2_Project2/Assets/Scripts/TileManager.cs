@@ -89,6 +89,23 @@ public class TileManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Loads all of the level stats in from the TowerBuilder script
+    /// </summary>
+    public void LoadingLevelStats()
+    {
+        // linking loader script and launching
+        towerbuilder = gameObject.GetComponent<TowerBuilder>();
+        towerbuilder.Setter();
+
+        // linking base stats
+        xTiles = towerbuilder.xTiles;
+        yTiles = towerbuilder.yTiles;
+        maxPathTiles = towerbuilder.maxPathTiles;
+        startYIndex = towerbuilder.startYindex;
+        endYIndex = towerbuilder.endYindex;
+    }
+
+    /// <summary>
     /// Sets the values for topLeftY and topLeftX that will build the array
     /// </summary>
     public void DetermineTopLeftXandY()
@@ -159,6 +176,25 @@ public class TileManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Checks values for start and end y index. If too small, set as 0. If too big, set as max
+    /// </summary>
+    /// <returns></returns>
+    public void StartEndErrorCheck()
+    {
+        // below 0
+        if (startYIndex < 0)
+            startYIndex = 0;
+        if (endYIndex < 0)
+            endYIndex = 0;
+
+        // above max
+        if (startYIndex >= yTiles)
+            startYIndex = yTiles - 1;
+        if (endYIndex >= yTiles)
+            endYIndex = yTiles - 1;
+    }
+
+    /// <summary>
     /// Changes the color of the object that was clicked on
     /// </summary>
     /// <param name="clickedObject"> The object that was clicked on </param>
@@ -166,6 +202,54 @@ public class TileManager : MonoBehaviour
     {
         // gets sprite renderer and changes the sprite
         clickedObject.GetComponent<SpriteRenderer>().sprite = sprite;
+    }
+
+    /// <summary>
+    /// Pulls tower indices from TowerBuilder script
+    /// </summary>
+    public void SetTowersInGrid()
+    {
+        // Setting towers into matrix
+        towers = towerbuilder.towerIndices;
+
+        for (int i = 0; i < towers.Count; i++)
+        {
+            GameObject towerSave = Instantiate(tower, starterTiles[towers[i][0], towers[i][1]].transform.position, Quaternion.identity);
+            Destroy(starterTiles[towers[i][0], towers[i][1]]);
+            starterTiles[towers[i][0], towers[i][1]] = towerSave;
+        }
+    }
+
+    /// <summary>
+    /// Check if the end has been reached
+    /// </summary>
+    public void ReachedEnd()
+    {
+        int xIndex = -1;
+        int yIndex = -1;
+
+        // stores indeces for last tile clicked
+        for (int i = 0; i < startUpX.Length; i++)
+        {
+            for (int j = 0; j < startUpY.Length; j++)
+            {
+                if (lastTileClicked == starterTiles[i, j])
+                {
+                    xIndex = i;
+                    yIndex = j;
+                }
+            }
+        }
+
+        // checks if tile is next to the end
+        if (xIndex == startUpX.Length - 1 && yIndex == endYIndex && !endHasBeenReached)
+        {
+            finalPath.Add(lastTileClicked.transform.position);
+            finalPath.Add(end.transform.position);
+            endHasBeenReached = true;
+            ChangeColor(end, horizontalPath);
+            SetCorrectSprites(end);
+        }
     }
 
     /// <summary>
@@ -261,73 +345,6 @@ public class TileManager : MonoBehaviour
                 }
                 
             }
-        }
-    }
-
-    /// <summary>
-    /// Check if the end has been reached
-    /// </summary>
-    public void ReachedEnd()
-    {
-        int xIndex = -1;
-        int yIndex = -1;
-
-        // stores indeces for last tile clicked
-        for (int i = 0; i < startUpX.Length; i++)
-        {
-            for (int j = 0; j < startUpY.Length; j++)
-            {
-                if (lastTileClicked == starterTiles[i, j])
-                {
-                    xIndex = i;
-                    yIndex = j;
-                }
-            }
-        }
-
-        // checks if tile is next to the end
-        if (xIndex == startUpX.Length - 1 && yIndex == endYIndex && !endHasBeenReached)
-        {
-            finalPath.Add(lastTileClicked.transform.position);
-            finalPath.Add(end.transform.position);
-            endHasBeenReached = true;
-            ChangeColor(end, horizontalPath);
-            SetCorrectSprites(end);
-        }
-    }
-
-    /// <summary>
-    /// Checks values for start and end y index. If too small, set as 0. If too big, set as max
-    /// </summary>
-    /// <returns></returns>
-    public void StartEndErrorCheck()
-    {
-        // below 0
-        if (startYIndex < 0)
-            startYIndex = 0;
-        if (endYIndex < 0)
-            endYIndex = 0;
-
-        // above max
-        if (startYIndex >= yTiles)
-            startYIndex = yTiles - 1;
-        if (endYIndex >= yTiles)
-            endYIndex = yTiles - 1;
-    }
-
-    /// <summary>
-    /// Pulls tower indices from TowerBuilder script
-    /// </summary>
-    public void SetTowersInGrid()
-    {
-        // Setting towers into matrix
-        towers = towerbuilder.towerIndices;
-
-        for (int i = 0; i < towers.Count; i++)
-        {
-            GameObject towerSave = Instantiate(tower, starterTiles[towers[i][0], towers[i][1]].transform.position, Quaternion.identity);
-            Destroy(starterTiles[towers[i][0], towers[i][1]]);
-            starterTiles[towers[i][0], towers[i][1]] = towerSave;
         }
     }
 
@@ -465,22 +482,5 @@ public class TileManager : MonoBehaviour
                 ChangeColor(starterTiles[lastX, lastY], verticalPath);
             }
         }
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public void LoadingLevelStats()
-    {
-        // linking loader script and launching
-        towerbuilder = gameObject.GetComponent<TowerBuilder>();
-        towerbuilder.Setter();
-
-        // linking base stats
-        xTiles = towerbuilder.xTiles;
-        yTiles = towerbuilder.yTiles;
-        maxPathTiles = towerbuilder.maxPathTiles;
-        startYIndex = towerbuilder.startYindex;
-        endYIndex = towerbuilder.endYindex;
     }
 }
