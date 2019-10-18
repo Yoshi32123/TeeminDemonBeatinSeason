@@ -157,10 +157,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xTiles: 5
-  yTiles: 4
+  yTiles: 6
   finalPath: []
   finalPathSpriteBuilder: 
-  maxPathTiles: 10
+  maxPathTiles: 50
   tower: {fileID: 2408496795696589102, guid: aaa4710ffe26a3e44a6a4638ebefb1a3, type: 3}
   templateSquare: {fileID: 4131744306534458732, guid: cc2f2ef916e9e84408f68f158c9a16bb,
     type: 3}
@@ -173,8 +173,8 @@ MonoBehaviour:
   turn_downRight: {fileID: 21300000, guid: 11a8cae023c00b941809217d388863a0, type: 3}
   turn_upRight: {fileID: 21300000, guid: f36aba75dd1b10843bbd13df665bf88a, type: 3}
   verticalPath: {fileID: 21300000, guid: 4b15301548fb5c6478591e69629ddce9, type: 3}
-  startYIndex: 2
-  endYIndex: 2
+  startYIndex: 4
+  endYIndex: 4
 --- !u!4 &350560198
 Transform:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dcda7185f75594f88406c8aaf3d33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 2
 --- !u!1 &372486451
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,8 +610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pref_Enemy: {fileID: 6704035097076527523, guid: 899285c57d020b84c9dc9e201ad4465f,
     type: 3}
-  timePerSpawn: 4
-  numberOfEnemies: 4
+  timePerSpawn: 1
+  numberOfEnemies: 50
   maxHealth: 4
   scoreTxt: {fileID: 422714836}
   pref_star: {fileID: 268313581136177728, guid: a5ab76b083c9eb24aa16adc78507fc14,
