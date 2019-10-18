@@ -13,7 +13,7 @@ public class TileManager : MonoBehaviour
     private GameObject[,] starterTiles;
 
     public List<Vector2> finalPath = new List<Vector2>();
-    private int maxPathTiles;
+    public int maxPathTiles;
 
     private float TopLeftX;
     private float TopLeftY;
