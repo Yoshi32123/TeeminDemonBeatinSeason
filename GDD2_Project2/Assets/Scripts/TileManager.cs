@@ -14,6 +14,7 @@ public class TileManager : MonoBehaviour
 
     public List<Vector2> finalPath = new List<Vector2>();
     public List<int> finalPathSpriteBuilder = new List<int>();
+    public int maxPathTiles;
 
     private float TopLeftX;
     private float TopLeftY;
@@ -79,8 +80,8 @@ public class TileManager : MonoBehaviour
     {
         ReachedEnd();
 
-        // if the end has been reached, stop detecting input and updates
-        if (!endHasBeenReached && Input.GetMouseButtonDown(0))
+        // if the end has been reached or path tiles have run out, stop path updates
+        if (!endHasBeenReached && /*Input.GetMouseButtonDown(0) &&*/ finalPath.Count <= maxPathTiles)
         {
             MouseClickCheck();
         }

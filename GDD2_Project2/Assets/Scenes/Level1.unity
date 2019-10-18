@@ -160,6 +160,7 @@ MonoBehaviour:
   yTiles: 4
   finalPath: []
   finalPathSpriteBuilder: 
+  maxPathTiles: 10
   tower: {fileID: 2408496795696589102, guid: aaa4710ffe26a3e44a6a4638ebefb1a3, type: 3}
   templateSquare: {fileID: 4131744306534458732, guid: cc2f2ef916e9e84408f68f158c9a16bb,
     type: 3}

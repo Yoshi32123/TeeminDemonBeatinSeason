@@ -154,6 +154,7 @@ MonoBehaviour:
   yTiles: 8
   finalPath: []
   finalPathSpriteBuilder: 
+  maxPathTiles: 500
   tower: {fileID: 2408496795696589102, guid: aaa4710ffe26a3e44a6a4638ebefb1a3, type: 3}
   templateSquare: {fileID: 4131744306534458732, guid: cc2f2ef916e9e84408f68f158c9a16bb,
     type: 3}
@@ -311,6 +312,8 @@ MonoBehaviour:
     type: 3}
   timePerSpawn: 5
   numberOfEnemies: 1
+  maxHealth: 100
+  autoGenStarTresholds: 0
   starThresholds: 000000000000000000000000
 --- !u!4 &960184510
 Transform:
