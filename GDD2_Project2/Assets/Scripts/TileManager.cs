@@ -81,7 +81,7 @@ public class TileManager : MonoBehaviour
         ReachedEnd();
 
         // if the end has been reached or path tiles have run out, stop path updates
-        if (!endHasBeenReached && /*Input.GetMouseButtonDown(0) &&*/ finalPath.Count <= maxPathTiles)
+        if (!endHasBeenReached && Input.GetMouseButton(0) && finalPath.Count <= maxPathTiles)
         {
             MouseClickCheck();
         }
