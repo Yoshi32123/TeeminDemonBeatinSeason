@@ -6,15 +6,14 @@ public class TileManager : MonoBehaviour
 {
     #region Variables
     // Instantiating Variables
-    public int xTiles;
-    public int yTiles;
+    private int xTiles;
+    private int yTiles;
     private float[] startUpX;
     private float[] startUpY;
     private GameObject[,] starterTiles;
 
     public List<Vector2> finalPath = new List<Vector2>();
-    public List<int> finalPathSpriteBuilder = new List<int>();
-    public int maxPathTiles;
+    private int maxPathTiles;
 
     private float TopLeftX;
     private float TopLeftY;
@@ -36,8 +35,8 @@ public class TileManager : MonoBehaviour
     public Sprite turn_upRight;
     public Sprite verticalPath;
 
-    public int startYIndex;
-    public int endYIndex;
+    private int startYIndex;
+    private int endYIndex;
     private GameObject start;
     private GameObject end;
     private GameObject lastTileClicked;
@@ -54,6 +53,8 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LoadingLevelStats();
+
         DetermineTopLeftXandY();
 
         TileStartUp();
@@ -62,7 +63,6 @@ public class TileManager : MonoBehaviour
         StartEndErrorCheck();
         start = Instantiate(templateSquare, new Vector2(starterTiles[0, startYIndex].transform.position.x - tileDifferential, starterTiles[0, startYIndex].transform.position.y), Quaternion.identity);
         ChangeColor(start, greenSprite);
-        finalPathSpriteBuilder.Add(0);
         end = Instantiate(templateSquare, new Vector2(starterTiles[xTiles-1, endYIndex].transform.position.x + tileDifferential, starterTiles[xTiles - 1, endYIndex].transform.position.y), Quaternion.identity);
         ChangeColor(end, greenSprite);
 
@@ -70,8 +70,6 @@ public class TileManager : MonoBehaviour
         lastTileClicked = start;
 
         // tower initialization
-        towerbuilder = gameObject.GetComponent<TowerBuilder>();
-        towerbuilder.Setter();
         SetTowersInGrid();
     }
 
@@ -467,5 +465,22 @@ public class TileManager : MonoBehaviour
                 ChangeColor(starterTiles[lastX, lastY], verticalPath);
             }
         }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void LoadingLevelStats()
+    {
+        // linking loader script and launching
+        towerbuilder = gameObject.GetComponent<TowerBuilder>();
+        towerbuilder.Setter();
+
+        // linking base stats
+        xTiles = towerbuilder.xTiles;
+        yTiles = towerbuilder.yTiles;
+        maxPathTiles = towerbuilder.maxPathTiles;
+        startYIndex = towerbuilder.startYindex;
+        endYIndex = towerbuilder.endYindex;
     }
 }

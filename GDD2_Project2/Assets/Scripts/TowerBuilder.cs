@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class TowerBuilder : MonoBehaviour
 {
-    public List<int[]> towerIndices = new List<int[]>();
-
     public int currentLevel;
+
+    public List<int[]> towerIndices = new List<int[]>();
+    public int xTiles;
+    public int yTiles;
+    public int maxPathTiles;
+    public int startYindex;
+    public int endYindex;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,20 +46,36 @@ public class TowerBuilder : MonoBehaviour
                 Level5Towers();
                 break;
             default:
-                // joe mama
+                // will use inspector values instead
                 break;
         }
     }
 
     public void Level1Towers()
     {
+        // towers
         towerIndices.Add(new int[] { 2, 1 });
+
+        // starter values
+        xTiles = 5;
+        yTiles = 4;
+        maxPathTiles = 10;
+        startYindex = 2;
+        endYindex = 2;
     }
 
     public void Level2Towers()
     {
+        // towers
         towerIndices.Add(new int[] { 2, 1 });
         towerIndices.Add(new int[] { 2, 3 });
+
+        // starter values
+        xTiles = 5;
+        yTiles = 6;
+        maxPathTiles = 50;
+        startYindex = 4;
+        endYindex = 4;
     }
 
     public void Level3Towers()
