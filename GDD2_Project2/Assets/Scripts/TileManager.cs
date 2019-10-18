@@ -110,6 +110,16 @@ public class TileManager : MonoBehaviour
     /// </summary>
     public void DetermineTopLeftXandY()
     {
+        // error checking
+        if (xTiles < 0)
+            xTiles = 5;
+        if (yTiles < 0)
+            yTiles = 5;
+        if (xTiles > 14)
+            xTiles = 14;
+        if (yTiles > 8)
+            yTiles = 8;
+
         // if x tiles are even
         if (xTiles%2 == 0)
         {
@@ -124,7 +134,7 @@ public class TileManager : MonoBehaviour
         // if y tiles are even
         if (yTiles % 2 == 0)
         {
-            TopLeftY = (yTiles / 2 * tileDifferential) - (tileDifferential * 2);
+            TopLeftY = yTiles / 2 * tileDifferential;
         }
         // if y tiles are odd
         else
@@ -138,16 +148,6 @@ public class TileManager : MonoBehaviour
     /// </summary>
     public void TileStartUp()
     {
-        // error checking
-        if (xTiles < 0)
-            xTiles = 5;
-        if (yTiles < 0)
-            yTiles = 5;
-        if (xTiles > 16)
-            xTiles = 16;
-        if (yTiles > 7)
-            yTiles = 7;
-
         // setting up matrix values
         startUpX = new float[xTiles];
         startUpY = new float[yTiles];

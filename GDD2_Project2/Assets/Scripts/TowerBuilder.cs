@@ -26,6 +26,9 @@ public class TowerBuilder : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Finds the level stats to be used based on the level input. If not an option, it defaults to the values used in the inspector
+    /// </summary>
     public void Setter()
     {
         switch (currentLevel)
