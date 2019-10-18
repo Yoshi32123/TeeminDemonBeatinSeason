@@ -12,7 +12,7 @@ public class ContrastFunctionality : MonoBehaviour
     //sets slider to shader's value
     void Start()
     {
-        float startValue = (rend.sharedMaterial.GetFloat("_Contrast") - 0.3f) / 2.7f;
+        float startValue = (rend.sharedMaterial.GetFloat("_Contrast") - 0.7f) / 2.3f;
         Slider slider = gameObject.GetComponent<Slider>();
         slider.normalizedValue = startValue;
         contrast = startValue;
@@ -21,8 +21,8 @@ public class ContrastFunctionality : MonoBehaviour
     //when slider is moved, send new value to shader
     public void OnValueChanged(float newValue)
     {
-        //range of 0.3f to 3.0f
-        contrast = (newValue * 2.7f) + 0.3f;
+        //range of 0.7f to 3.0f
+        contrast = (newValue * 2.3f) + 0.7f;
         rend.sharedMaterial.SetFloat("_Contrast", contrast);
     }
 }
