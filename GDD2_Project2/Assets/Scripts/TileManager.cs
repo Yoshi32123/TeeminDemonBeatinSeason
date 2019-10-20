@@ -13,6 +13,7 @@ public class TileManager : MonoBehaviour
     private GameObject[,] starterTiles;
 
     public List<Vector2> finalPath = new List<Vector2>();
+    public List<GameObject> finalPathLinker = new List<GameObject>();
     public int maxPathTiles;
 
     private float TopLeftX;
@@ -268,6 +269,7 @@ public class TileManager : MonoBehaviour
             if (ValidPath(hit.collider.gameObject))
             {
                 finalPath.Add(lastTileClicked.transform.position);
+                finalPathLinker.Add(lastTileClicked);
 
                 if (twoTilesAgo != null)
                 {
@@ -283,7 +285,6 @@ public class TileManager : MonoBehaviour
                 ChangeColor(hit.collider.gameObject, greenSprite);
             }
         }
-
     }
 
     /// <summary>
@@ -489,8 +490,16 @@ public class TileManager : MonoBehaviour
     /// </summary>
     public void BackOnePath()
     {
-        ChangeColor(twoTilesAgo, greenSprite);
-        ChangeColor(lastTileClicked, blueSprite);
+        // changing colors
+        //ChangeColor(twoTilesAgo, greenSprite);
+        //ChangeColor(lastTileClicked, blueSprite);
+
+        // 
+        finalPath.RemoveAt(finalPath.Count - 1);
+        finalPathLinker.RemoveAt(finalPathLinker.Count - 1);
+
+        // 
         lastTileClicked = twoTilesAgo;
+        twoTilesAgo = finalPathLinker[finalPathLinker.Count - 2];
     }
 }
