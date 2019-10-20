@@ -18,8 +18,8 @@ public class TowerBuilder : MonoBehaviour
     public int numberOfEnemies;
 
 
-    // Start is called before the first frame update
-    void Start()
+    // needs to be Awake() so it can set level before the Setter(). [ Start() will run after Setter() ]
+    void Awake()
     {
         if (currentLevel != 0)
         {
