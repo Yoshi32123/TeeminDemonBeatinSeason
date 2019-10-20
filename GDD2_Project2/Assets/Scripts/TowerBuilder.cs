@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerBuilder : MonoBehaviour
 {
-    public int currentLevel;
+    public static int currentLevel;
 
     public List<int[]> towerIndices = new List<int[]>();
     public int xTiles;
