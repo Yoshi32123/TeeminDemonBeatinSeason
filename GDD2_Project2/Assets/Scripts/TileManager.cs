@@ -46,6 +46,7 @@ public class TileManager : MonoBehaviour
     public GameObject GetStartTile() { return start; }
     public GameObject GetEndTile() { return end; }
 
+    LevelManager levelManager;
     TowerBuilder towerbuilder;
     private List<int[]> towers;
 
@@ -104,6 +105,11 @@ public class TileManager : MonoBehaviour
         maxPathTiles = towerbuilder.maxPathTiles;
         startYIndex = towerbuilder.startYindex;
         endYIndex = towerbuilder.endYindex;
+
+        // passing over to levelManager
+        levelManager = gameObject.GetComponent<LevelManager>();
+        levelManager.timePerSpawn = towerbuilder.timePerSpawn;
+        levelManager.numberOfEnemies = towerbuilder.numberOfEnemies;
     }
 
     /// <summary>

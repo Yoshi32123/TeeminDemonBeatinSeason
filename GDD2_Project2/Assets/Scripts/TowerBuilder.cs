@@ -14,6 +14,9 @@ public class TowerBuilder : MonoBehaviour
     public int startYindex;
     public int endYindex;
 
+    public int timePerSpawn;
+    public int numberOfEnemies;
+
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +72,10 @@ public class TowerBuilder : MonoBehaviour
         maxPathTiles = 10;
         startYindex = 2;
         endYindex = 2;
+
+        // level values
+        timePerSpawn = 4;
+        numberOfEnemies = 4;
     }
 
     public void Level2Towers()

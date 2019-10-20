@@ -9,11 +9,11 @@ public class LevelManager : MonoBehaviour
 
     [Header("Enemies")]
     [SerializeField] GameObject pref_Enemy = null;
-    [SerializeField] float timePerSpawn = 0.0f;
-    [SerializeField] int numberOfEnemies = 0; //how many enemies in total for this level?
+    [SerializeField] public float timePerSpawn = 0.0f;
+    [SerializeField] public int numberOfEnemies = 0; //how many enemies in total for this level?
 
     [Header("Health")]
-    [SerializeField] int maxHealth = 100;
+    [SerializeField] public int maxHealth = 100;
 
     [Header("Score")]
     [SerializeField] Text scoreTxt;
