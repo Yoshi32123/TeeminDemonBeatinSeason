@@ -73,33 +73,63 @@ public class TowerBuilder : MonoBehaviour
         startYindex = 2;
         endYindex = 2;
 
-        // level values
-        timePerSpawn = 4;
-        numberOfEnemies = 4;
+        // enemy values
+        numberOfEnemies = 1;
     }
 
     public void Level2Towers()
     {
         // towers
         towerIndices.Add(new int[] { 2, 1 });
-        towerIndices.Add(new int[] { 2, 3 });
+        towerIndices.Add(new int[] { 4, 5 });
 
         // starter values
-        xTiles = 5;
-        yTiles = 6;
-        maxPathTiles = 50;
-        startYindex = 4;
-        endYindex = 4;
+        xTiles = 7;
+        yTiles = 7;
+        maxPathTiles = 19;
+        startYindex = 3;
+        endYindex = 3;
+
+        // enemy values
+        timePerSpawn = 2;
+        numberOfEnemies = 3;
     }
 
     public void Level3Towers()
     {
-        towerIndices.Add(new int[] { 2, 1 });
+        // towers
+        towerIndices.Add(new int[] { 3, 1 });
+        towerIndices.Add(new int[] { 3, 3 });
+
+        // starter values
+        xTiles = 7;
+        yTiles = 5;
+        maxPathTiles = 50;
+        startYindex = 2;
+        endYindex = 2;
+
+        // enemy values
+        timePerSpawn = 2;
+        numberOfEnemies = 6;
     }
 
     public void Level4Towers()
     {
-        towerIndices.Add(new int[] { 2, 1 });
+        // towers
+        towerIndices.Add(new int[] { 1, 5 });
+        towerIndices.Add(new int[] { 3, 5 });
+        towerIndices.Add(new int[] { 5, 5 });
+
+        // starter values
+        xTiles = 7;
+        yTiles = 7;
+        maxPathTiles = 17;
+        startYindex = 1;
+        endYindex = 1;
+
+        //enemy values
+        timePerSpawn = 1;
+        numberOfEnemies = 8;
     }
 
     public void Level5Towers()
