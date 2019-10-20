@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        levelManager = GameObject.Find("TileManager").GetComponent<LevelManager>();
         cooldownTimer = timeToCoolDown;
     }
 

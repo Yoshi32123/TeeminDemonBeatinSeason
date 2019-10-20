@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 350560198}
   - component: {fileID: 350560199}
   - component: {fileID: 350560197}
+  - component: {fileID: 350560200}
   m_Layer: 0
   m_Name: TileManager
   m_TagString: TileManager
@@ -197,11 +198,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dcda7185f75594f88406c8aaf3d33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setLevel: 1
   xTiles: 0
   yTiles: 0
   maxPathTiles: 0
   startYindex: 0
   endYindex: 0
+  timePerSpawn: 0
+  numberOfEnemies: 0
+--- !u!114 &350560200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350560196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27621c1266ef5c14d9cf1566a7f30a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pref_Enemy: {fileID: 6704035097076527523, guid: 899285c57d020b84c9dc9e201ad4465f,
+    type: 3}
+  timePerSpawn: 1
+  numberOfEnemies: 5
+  maxHealth: 1
+  scoreTxt: {fileID: 422714836}
+  pref_star: {fileID: 268313581136177728, guid: a5ab76b083c9eb24aa16adc78507fc14,
+    type: 3}
+  autoGenStarTresholds: 1
+  starThresholds: 
 --- !u!1 &372486451
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +712,7 @@ PrefabInstance:
     - target: {fileID: 9197461398947367099, guid: aedb500351df77c43be3fc8c3c529ba0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9197461398947367099, guid: aedb500351df77c43be3fc8c3c529ba0,
         type: 3}
@@ -800,59 +826,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aedb500351df77c43be3fc8c3c529ba0, type: 3}
---- !u!1 &970095762
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 970095764}
-  - component: {fileID: 970095763}
-  m_Layer: 0
-  m_Name: LevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &970095763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970095762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27621c1266ef5c14d9cf1566a7f30a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pref_Enemy: {fileID: 6704035097076527523, guid: 899285c57d020b84c9dc9e201ad4465f,
-    type: 3}
-  timePerSpawn: 4
-  numberOfEnemies: 4
-  maxHealth: 4
-  scoreTxt: {fileID: 422714836}
-  pref_star: {fileID: 268313581136177728, guid: a5ab76b083c9eb24aa16adc78507fc14,
-    type: 3}
-  autoGenStarTresholds: 1
-  starThresholds: 
---- !u!4 &970095764
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970095762}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7506237, y: 0.30412224, z: -0.9966553}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023339165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1094,7 @@ RectTransform:
   - {fileID: 1023339166}
   - {fileID: 1783043382}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1712,7 +1685,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2095641725
 MonoBehaviour:
