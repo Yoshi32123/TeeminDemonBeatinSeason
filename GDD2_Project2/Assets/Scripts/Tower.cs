@@ -25,7 +25,7 @@ public class Tower : MonoBehaviour
     {
         if(cooldownTimer > 0)
         {
-            cooldownTimer -= Time.deltaTime;
+            cooldownTimer -= (Time.deltaTime * SpeedFunctionality.GameSpeed);
         }
 
         target = levelManager.GetClosestEnemy(transform.position, range);

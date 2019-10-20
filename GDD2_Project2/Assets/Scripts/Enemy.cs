@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         direction = next - position;
-        position += direction.normalized * speed;
+        position += direction.normalized * speed * SpeedFunctionality.GameSpeed;
         transform.position = position;
 
         if(Vector3.SqrMagnitude(next - position) < predictiveRadius * predictiveRadius)
