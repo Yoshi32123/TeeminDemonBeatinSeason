@@ -6,6 +6,7 @@ public class TowerBuilder : MonoBehaviour
 {
     public static int currentLevel;
 
+    public int setLevel;
     public List<int[]> towerIndices = new List<int[]>();
     public int xTiles;
     public int yTiles;
@@ -17,7 +18,10 @@ public class TowerBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (currentLevel != 0)
+        {
+            setLevel = currentLevel;
+        }
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class TowerBuilder : MonoBehaviour
     /// </summary>
     public void Setter()
     {
-        switch (currentLevel)
+        switch (setLevel)
         {
             case 1:
                 Level1Towers();
