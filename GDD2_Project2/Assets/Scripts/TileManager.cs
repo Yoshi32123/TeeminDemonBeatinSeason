@@ -139,7 +139,7 @@ public class TileManager : MonoBehaviour
         // if y tiles are odd
         else
         {
-            TopLeftY = ((yTiles - 1) / 2 * tileDifferential) - (tileDifferential * 2);
+            TopLeftY = ((yTiles - 1) / 2 * tileDifferential) - tileDifferential / 2;
         }
     }
 
@@ -482,5 +482,15 @@ public class TileManager : MonoBehaviour
                 ChangeColor(starterTiles[lastX, lastY], verticalPath);
             }
         }
+    }
+
+    /// <summary>
+    /// Goes back one space on the path during path placement
+    /// </summary>
+    public void BackOnePath()
+    {
+        ChangeColor(twoTilesAgo, greenSprite);
+        ChangeColor(lastTileClicked, blueSprite);
+        lastTileClicked = twoTilesAgo;
     }
 }
