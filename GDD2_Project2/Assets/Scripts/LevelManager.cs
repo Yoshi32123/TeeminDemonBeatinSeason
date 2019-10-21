@@ -173,6 +173,18 @@ public class LevelManager : MonoBehaviour
         return enemies[closestIndex];
     }
 
+    public GameObject GetPriorityTarget(Vector3 position, float range)
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            if((position - enemy.transform.position).sqrMagnitude < range * range)
+            {
+                return enemy;
+            }
+        }
+        return null;
+    }
+
     public void AddScore(int value) { score += value; }
     public bool GetEndHasBeenReached() { return tileManager.GetEndHasBeenReached(); }
 }
