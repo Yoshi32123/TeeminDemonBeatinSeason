@@ -125,6 +125,8 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
+                levelComplete = true;
+
                 if (health <= 0)
                 {
                     win = false;

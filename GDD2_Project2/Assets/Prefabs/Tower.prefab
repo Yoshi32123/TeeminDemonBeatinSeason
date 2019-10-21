@@ -95,8 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   range: 2
-  timeToCoolDown: 1
-  damage: 3
+  timeToCoolDown: 0.5
+  damage: 1.5
 --- !u!120 &1447167126
 LineRenderer:
   m_ObjectHideFlags: 0
