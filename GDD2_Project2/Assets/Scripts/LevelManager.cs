@@ -161,4 +161,5 @@ public class LevelManager : MonoBehaviour
     }
 
     public void AddScore(int value) { score += value; }
+    public bool GetEndHasBeenReached() { return tileManager.GetEndHasBeenReached(); }
 }
