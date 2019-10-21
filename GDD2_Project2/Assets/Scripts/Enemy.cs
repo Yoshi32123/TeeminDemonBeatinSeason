@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [Header("Gameplay")]
     [SerializeField] int maxHealth = 0;
     public static int scorePerKill = 100;
-    public int health = 10;
+    public float health = 10;
 
     Vector2 position;
     Vector2 direction;
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         next = pathway[0];
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         SetColor();

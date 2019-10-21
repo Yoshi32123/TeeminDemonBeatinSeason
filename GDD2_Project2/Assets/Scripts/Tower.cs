@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
 
     [SerializeField] float range = 0.0f;
     [SerializeField] float timeToCoolDown = 0.0f;
-    [SerializeField] int damage = 0;
+    [SerializeField] float damage = 0;
     float cooldownTimer;
 
     int rangeIndicatorDivisions = 30;
@@ -20,6 +20,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        range += 0.5f; // accounts for the range starting in the center of the tower's tile
         levelManager = GameObject.Find("TileManager").GetComponent<LevelManager>();
         line = gameObject.GetComponent<LineRenderer>();
         cooldownTimer = timeToCoolDown;

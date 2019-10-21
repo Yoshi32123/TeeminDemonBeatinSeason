@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
     bool levelComplete = false;
     public bool win = false;
 
-    int health = 0;
+    public int health = 0;
     public void TakeDamage(int damage) { health -= damage; }
 
     // Start is called before the first frame update
@@ -125,6 +125,8 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
+                levelComplete = true;
+
                 if (health <= 0)
                 {
                     win = false;
