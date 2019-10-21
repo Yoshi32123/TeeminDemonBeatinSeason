@@ -496,16 +496,20 @@ public class TileManager : MonoBehaviour
     /// </summary>
     public void BackOnePath()
     {
-        // changing colors
-        //ChangeColor(twoTilesAgo, greenSprite);
-        //ChangeColor(lastTileClicked, blueSprite);
+        // dont run if path is finished
+        if (!endHasBeenReached)
+        {
+            // changing colors
+            ChangeColor(twoTilesAgo, greenSprite);
+            ChangeColor(lastTileClicked, redSprite);
 
-        // 
-        finalPath.RemoveAt(finalPath.Count - 1);
-        finalPathLinker.RemoveAt(finalPathLinker.Count - 1);
+            // 
+            finalPath.RemoveAt(finalPath.Count - 1);
+            finalPathLinker.RemoveAt(finalPathLinker.Count - 1);
 
-        // 
-        lastTileClicked = twoTilesAgo;
-        twoTilesAgo = finalPathLinker[finalPathLinker.Count - 2];
+            // 
+            lastTileClicked = twoTilesAgo;
+            twoTilesAgo = finalPathLinker[finalPathLinker.Count - 1];
+        }
     }
 }
