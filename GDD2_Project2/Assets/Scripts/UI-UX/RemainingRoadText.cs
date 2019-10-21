@@ -6,6 +6,7 @@ using TMPro;
 public class RemainingRoadText : MonoBehaviour
 {
     private TextMeshProUGUI RemainerText;
+    private TowerBuilder TowerBuilderScript;
     private TileManager TileManagerScript;
     public GameObject TileManagerGO;
 
@@ -15,6 +16,7 @@ public class RemainingRoadText : MonoBehaviour
     /// </summary>
     void Start()
     {
+        TowerBuilderScript = TileManagerGO.GetComponent<TowerBuilder>();
         TileManagerScript = TileManagerGO.GetComponent<TileManager>();
         RemainerText = gameObject.GetComponent<TextMeshProUGUI>();
     }
@@ -24,8 +26,19 @@ public class RemainingRoadText : MonoBehaviour
     /// </summary>
     void Update()
     {
-        //Have to do +1 because the user sets the starting tile road which counts towards the road count. 
-        //Without the +1, using all roads will give "-1" due to that starting road being set by user instead of TileManager starting next to starting tile.
-        RemainerText.SetText("Remaining Roads: " + (TileManagerScript.maxPathTiles - TileManagerScript.finalPath.Count + 1));
+        int remainingTiles = (TowerBuilderScript.maxPathTiles - TileManagerScript.finalPath.Count);
+
+        //ignore starting tile so it doesn't count towards out tile count
+        if(remainingTiles != TowerBuilderScript.maxPathTiles)
+        {
+            remainingTiles++;
+        }
+        //ignore end tile so it doesn't count and make tile count -1 when using all tiles 
+        if(TileManagerScript.GetEndHasBeenReached())
+        {
+            remainingTiles++;
+        }
+        
+        RemainerText.SetText("Remaining Roads: " + remainingTiles);
     }
 }
