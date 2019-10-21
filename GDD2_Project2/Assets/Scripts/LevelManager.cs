@@ -27,10 +27,11 @@ public class LevelManager : MonoBehaviour
     int currentEnemies = 0; //how many enemies have we spawned at any given time
 
     int score = 0;
-    int stars = 0;
+    public int stars = 0;
 
     int enemyInteractions = 0; // counts the number of times an enemy is either killed or makes it to the end. Used to tell when level has ended
     bool levelComplete = false;
+    public bool win = false;
 
     int health = 0;
     public void TakeDamage(int damage) { health -= damage; }
@@ -88,7 +89,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            if (!levelComplete)
+            if (!levelComplete && health != 0)
             {
                 if (enemies.Count == 0 && enemyInteractions == numberOfEnemies)
                 {
@@ -122,6 +123,18 @@ public class LevelManager : MonoBehaviour
                     Debug.Log("Stars: " + stars);
                 }
             }
+            else
+            {
+                if (health <= 0)
+                {
+                    win = false;
+                }
+                else
+                {
+                    win = true;
+                }
+            }
+            
         }
         ClearDeadEnemies();
     }
