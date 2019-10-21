@@ -43,6 +43,9 @@ public class TileManager : MonoBehaviour
     private GameObject lastTileClicked;
     private GameObject twoTilesAgo;
 
+    public GameObject backSound;
+    public GameObject placeSound;
+
     public GameObject GetStartTile() { return start; }
     public GameObject GetEndTile() { return end; }
 
@@ -274,6 +277,9 @@ public class TileManager : MonoBehaviour
             // checks if tile is valid for path addition
             if (ValidPath(hit.collider.gameObject))
             {
+                // sound
+                placeSound.GetComponent<SoundManager>().Play();
+
                 finalPath.Add(lastTileClicked.transform.position);
                 finalPathLinker.Add(lastTileClicked);
 
@@ -499,6 +505,9 @@ public class TileManager : MonoBehaviour
         // dont run if path is finished
         if (!endHasBeenReached)
         {
+            // sound
+            backSound.GetComponent<SoundManager>().Play();
+
             // changing colors
             ChangeColor(twoTilesAgo, greenSprite);
             ChangeColor(lastTileClicked, redSprite);
