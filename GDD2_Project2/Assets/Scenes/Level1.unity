@@ -222,12 +222,15 @@ MonoBehaviour:
     type: 3}
   timePerSpawn: 1
   numberOfEnemies: 5
-  maxHealth: 1
+  maxHealth: 4
   scoreTxt: {fileID: 422714836}
   pref_star: {fileID: 268313581136177728, guid: a5ab76b083c9eb24aa16adc78507fc14,
     type: 3}
   autoGenStarTresholds: 1
   starThresholds: 
+  stars: 0
+  win: 0
+  health: 0
 --- !u!1 &372486451
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +862,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8686382521334904906, guid: aedb500351df77c43be3fc8c3c529ba0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1097779354}
+    - target: {fileID: 8686382521334904906, guid: aedb500351df77c43be3fc8c3c529ba0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResettingScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686382521334904906, guid: aedb500351df77c43be3fc8c3c529ba0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aedb500351df77c43be3fc8c3c529ba0, type: 3}
 --- !u!1 &1023339165
@@ -1136,6 +1154,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1097779349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 192569716135025245, guid: aedb500351df77c43be3fc8c3c529ba0,
+    type: 3}
+  m_PrefabInstance: {fileID: 956974386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097779354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097779349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f473e8e6f3acdcc4eb528cd78bdb7e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1120581926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1251,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120581926}
   m_CullTransparentMesh: 0
+--- !u!1 &1217107934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4706088623560085665, guid: aedb500351df77c43be3fc8c3c529ba0,
+    type: 3}
+  m_PrefabInstance: {fileID: 956974386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1269769395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,12 +1339,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 350560197}
+        m_MethodName: BackOnePath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1572,6 +1614,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedButtonText: {fileID: 1762763386}
+--- !u!1 &1825300025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7623833185821358325, guid: aedb500351df77c43be3fc8c3c529ba0,
+    type: 3}
+  m_PrefabInstance: {fileID: 956974386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2034559587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1715,7 @@ GameObject:
   - component: {fileID: 2095641723}
   - component: {fileID: 2095641722}
   - component: {fileID: 2095641725}
+  - component: {fileID: 2095641726}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1734,6 +1783,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f473e8e6f3acdcc4eb528cd78bdb7e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2095641726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095641721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e621c7477f90eda4083947e2c39fc805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinCanvas: {fileID: 1217107934}
+  LoseCanvas: {fileID: 1825300025}
+  TileManagerGO: {fileID: 350560196}
+  pref_star: {fileID: 268313581136177728, guid: a5ab76b083c9eb24aa16adc78507fc14,
+    type: 3}
 --- !u!1 &2124092064
 GameObject:
   m_ObjectHideFlags: 0
