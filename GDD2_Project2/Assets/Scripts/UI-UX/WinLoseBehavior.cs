@@ -30,19 +30,20 @@ public class WinLoseBehavior : MonoBehaviour
                 Instantiate(pref_star, new Vector2(0, 4), Quaternion.identity);
                 Instantiate(pref_star, new Vector2(1, 4), Quaternion.identity);
             }
-            else if (sLevelManagerScript.stars == 2)
+            else if (LevelManagerScript.stars == 2)
             {
                 //2 stars
                 Instantiate(pref_star, new Vector2(-0.5f, 4), Quaternion.identity);
                 Instantiate(pref_star, new Vector2(0.5f, 4), Quaternion.identity);
             }
-            else if (LevelManagerScript.stars ==1)
+            else if (LevelManagerScript.stars == 1)
             {
                 //1 star
                 Instantiate(pref_star, new Vector2(1, 4), Quaternion.identity);
             }
+            
         }
-        else if (LevelManagerScript.lose)
+        else if (LevelManagerScript.health <= 0)
         {
             LoseCanvas.SetActive(true);
         }
