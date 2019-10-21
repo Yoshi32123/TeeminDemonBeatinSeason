@@ -41,13 +41,13 @@ public class SceneSwitcher : MonoBehaviour
     }
 
     /**<summary>
-     * switches to the next level scene and sets the level. (For win screen overlay)
+     * switches to the next level scene and sets the level. (For win screen overlay only)
      * </summary>
      */
     public void LoadNextLevel()
     {
         TowerBuilder.currentLevel = TowerBuilder.currentLevel+1;
-        SceneManager.LoadScene(LevelSceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     /**

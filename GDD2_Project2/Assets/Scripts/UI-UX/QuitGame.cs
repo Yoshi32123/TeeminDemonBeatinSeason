@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class QuitGame : MonoBehaviour
 {
-    /*
-     * Kills the game application
-     * Only works in a compiled application (windowed)
-     */
+    /// <summary>
+    /// Kills the game application
+    /// Only works in a compiled application (build. not within unity app) 
+    /// </summary>
     public void doExitGame()
     {
         Application.Quit();
