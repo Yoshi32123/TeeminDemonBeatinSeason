@@ -104,13 +104,13 @@ public class TowerBuilder : MonoBehaviour
         // starter values
         xTiles = 7;
         yTiles = 5;
-        maxPathTiles = 50;
+        maxPathTiles = 19;
         startYindex = 2;
         endYindex = 2;
 
         // enemy values
-        timePerSpawn = 1.8f;
-        numberOfEnemies = 6;
+        timePerSpawn = 1.2f;
+        numberOfEnemies = 7;
     }
 
     public void Level4Towers()
