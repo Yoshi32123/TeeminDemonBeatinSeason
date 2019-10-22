@@ -194,13 +194,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setLevel: 1
-  xTiles: 0
-  yTiles: 0
-  maxPathTiles: 0
-  startYindex: 0
-  endYindex: 0
-  timePerSpawn: 0
-  numberOfEnemies: 0
+  xTiles: 500
+  yTiles: 500
+  maxPathTiles: 500
+  startYindex: 3
+  endYindex: 3
+  timePerSpawn: 2
+  numberOfEnemies: 50
 --- !u!114 &350560200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,12 +1002,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120581926}
   m_CullTransparentMesh: 0
---- !u!1 &1217107934 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4706088623560085665, guid: aedb500351df77c43be3fc8c3c529ba0,
-    type: 3}
-  m_PrefabInstance: {fileID: 956974386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231163378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,12 +1833,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedButtonText: {fileID: 1762763386}
---- !u!1 &1825300025 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7623833185821358325, guid: aedb500351df77c43be3fc8c3c529ba0,
-    type: 3}
-  m_PrefabInstance: {fileID: 956974386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1919741055
 GameObject:
   m_ObjectHideFlags: 0
