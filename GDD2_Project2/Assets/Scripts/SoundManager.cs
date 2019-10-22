@@ -23,7 +23,10 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     public void Play()
     {
-        source.Play();
+        if (SoundFunctionality.SoundEnabled)
+        {
+            source.Play();
+        }
     }
 
     /// <summary>
