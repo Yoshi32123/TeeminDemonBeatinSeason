@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,5 +24,13 @@ public class SoundManager : MonoBehaviour
     public void Play()
     {
         source.Play();
+    }
+
+    /// <summary>
+    /// Call this function to stop the attached sound
+    /// </summary>
+    public void Stop()
+    {
+        source.Stop();
     }
 }
