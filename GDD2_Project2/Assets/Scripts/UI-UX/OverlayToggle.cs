@@ -12,6 +12,7 @@ public class OverlayToggle : MonoBehaviour
     public GameObject OptionsCanvas;
     public GameObject WinCanvas;
     public GameObject LostCanvas;
+    private int PrevSpeed = 1;
 
     void Start()
     {
@@ -26,6 +27,16 @@ public class OverlayToggle : MonoBehaviour
 
         //shows/hides pause screen
         PausedCanvas.SetActive(Paused);
+
+        if (Paused)
+        {
+            PrevSpeed = SpeedFunctionality.GameSpeed;
+            SpeedFunctionality.GameSpeed = 0;
+        }
+        else
+        {
+            SpeedFunctionality.GameSpeed = PrevSpeed;
+        }
     }
 
     ///<summary>alternates the option state</summary>
