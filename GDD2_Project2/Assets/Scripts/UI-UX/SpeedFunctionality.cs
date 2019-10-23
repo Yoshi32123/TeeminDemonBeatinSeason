@@ -11,8 +11,7 @@ public class SpeedFunctionality : MonoBehaviour
     //sets speed to 1 at start
     void Start()
     {
-        GameSpeed = 1;
-        SpeedButtonText.GetComponent<Text>().text = "Speed: x1";
+        SpeedButtonText.GetComponent<Text>().text = "Speed: x" + GameSpeed.ToString();
     }
 
 
