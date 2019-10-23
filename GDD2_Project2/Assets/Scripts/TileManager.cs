@@ -507,7 +507,7 @@ public class TileManager : MonoBehaviour
     public void BackOnePath()
     {
         // dont run if path is finished
-        if (!endHasBeenReached)
+        if (!endHasBeenReached && finalPath.Count > 1)
         {
             // sound
             soundStorage.backNoise.GetComponent<SoundManager>().Play();
