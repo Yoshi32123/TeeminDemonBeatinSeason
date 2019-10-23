@@ -1426,6 +1426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1543326331}
   - component: {fileID: 1543326332}
+  - component: {fileID: 1543326333}
   m_Layer: 0
   m_Name: SoundStorage
   m_TagString: Untagged
@@ -1465,6 +1466,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backNoise: {fileID: 1604573963}
   placeNoise: {fileID: 1270907174}
+  demonsComing: {fileID: 1231163378}
+  creatingPath: {fileID: 1919741055}
+--- !u!114 &1543326333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543326330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29f803fa64b48c4ea6ea2cb3787c8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   demonsComing: {fileID: 1231163378}
   creatingPath: {fileID: 1919741055}
 --- !u!1 &1604573963
