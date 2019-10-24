@@ -96,3 +96,7 @@ MonoBehaviour:
   predictiveRadius: 0.2
   maxHealth: 10
   health: 10
+  facingFront: {fileID: 21300000, guid: 638ebdaac7fa1f5449de1c1b61d341f6, type: 3}
+  facingLeft: {fileID: 21300000, guid: f319a3b0b4d97a54db437cebcc61e88e, type: 3}
+  facingRight: {fileID: 21300000, guid: 32f915daed521974b867133a0d763722, type: 3}
+  facingBack: {fileID: 21300000, guid: 9d9e43a52ec554d47a06574d8b461b61, type: 3}

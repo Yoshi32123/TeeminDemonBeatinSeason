@@ -13,6 +13,12 @@ public class Enemy : MonoBehaviour
     public static int scorePerKill = 100;
     public float health = 10;
 
+    [Header("Demon Sprites")]
+    [SerializeField] Sprite facingFront;
+    [SerializeField] Sprite facingLeft;
+    [SerializeField] Sprite facingRight;
+    [SerializeField] Sprite facingBack;
+
     Vector2 position;
     Vector2 direction;
 
@@ -48,6 +54,8 @@ public class Enemy : MonoBehaviour
                 next = pathway[pathway.IndexOf(next) + 1];
             }
         }
+
+        ChangeSprite();
     }
 
     public void SetPathway(List<Vector2> path)
@@ -67,9 +75,36 @@ public class Enemy : MonoBehaviour
     /// this method is just to show damage for testing purposes
     /// it can and should be removed once art is in
     /// </summary>
-    void SetColor()
+    public void SetColor()
     {
         Color newColor = new Color(1.0f, 1.0f - (1.0f / health), 1.0f - (1.0f / health));
         gameObject.GetComponent<SpriteRenderer>().material.color = newColor;
+    }
+
+    /// <summary>
+    /// Changes the sprite based on the direction that the object is facing
+    /// </summary>
+    public void ChangeSprite()
+    {
+        if (direction.x >= Mathf.Sin(Mathf.PI * 45 / 180))
+        {
+            // facing right
+            gameObject.GetComponent<SpriteRenderer>().sprite = facingRight;
+        }
+        else if (direction.x <= -Mathf.Sin(Mathf.PI * 45 / 180))
+        {
+            // facing left
+            gameObject.GetComponent<SpriteRenderer>().sprite = facingLeft;
+        }
+        else if (direction.y >= Mathf.Sin(Mathf.PI * 45 / 180))
+        {
+            // facing back
+            gameObject.GetComponent<SpriteRenderer>().sprite = facingBack;
+        }
+        else if(direction.y <= -Mathf.Sin(Mathf.PI * 45 / 180))
+        {
+            // facing forward
+            gameObject.GetComponent<SpriteRenderer>().sprite = facingFront;
+        }
     }
 }
