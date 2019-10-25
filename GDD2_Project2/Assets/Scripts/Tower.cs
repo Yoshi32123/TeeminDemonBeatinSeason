@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField] float damage = 0;
     float cooldownTimer;
 
-    int rangeIndicatorDivisions = 30;
+    int rangeIndicatorDivisions = 100;
 
     GameObject target;
 
