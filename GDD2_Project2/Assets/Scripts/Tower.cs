@@ -37,7 +37,7 @@ public class Tower : MonoBehaviour
 
         if(cooldownTimer > 0)
         {
-            cooldownTimer -= (Time.deltaTime * SpeedFunctionality.GameSpeed);
+            cooldownTimer -= (Time.deltaTime * SpeedFunctionality.CurrentGameSpeed);
         }
 
         target = levelManager.GetPriorityTarget(transform.position, range);

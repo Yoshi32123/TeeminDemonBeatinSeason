@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour
     {
         if (tileManager.GetEndHasBeenReached())
         {
-            enemyTimer -= Time.deltaTime * SpeedFunctionality.GameSpeed;
+            enemyTimer -= Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
             if (enemyTimer <= 0 && currentEnemies < numberOfEnemies)
             {
                 Vector3 startPosition = tileManager.GetStartTile().transform.position;
