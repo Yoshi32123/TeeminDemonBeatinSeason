@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dcda7185f75594f88406c8aaf3d33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setLevel: 0
+  setLevel: 7
   xTiles: 500
   yTiles: 500
   maxPathTiles: 500

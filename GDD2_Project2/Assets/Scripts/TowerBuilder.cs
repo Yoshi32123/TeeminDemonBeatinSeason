@@ -55,6 +55,21 @@ public class TowerBuilder : MonoBehaviour
             case 5:
                 Level5Towers();
                 break;
+            case 6:
+                Level6Towers();
+                break;
+            case 7:
+                Level7Towers();
+                break;
+            case 8:
+                Level8Towers();
+                break;
+            case 9:
+                Level9Towers();
+                break;
+            case 10:
+                Level10Towers();
+                break;
             default:
                 // will use inspector values instead
                 break;
@@ -152,5 +167,75 @@ public class TowerBuilder : MonoBehaviour
         // enemy values
         timePerSpawn = .95f;
         numberOfEnemies = 10;
+    }
+
+    public void Level6Towers()
+    {
+        // towers
+
+        // starter values
+
+        // enemy values
+
+    }
+
+    public void Level7Towers()
+    {
+        // towers
+        towerIndices.Add(new int[] { 1, 3 });
+        towerIndices.Add(new int[] { 2, 1 });
+        towerIndices.Add(new int[] { 2, 5 });
+        towerIndices.Add(new int[] { 3, 3 });
+        towerIndices.Add(new int[] { 4, 1 });
+        towerIndices.Add(new int[] { 4, 5 });
+        towerIndices.Add(new int[] { 5, 3 });
+        towerIndices.Add(new int[] { 8, 3 });
+        towerIndices.Add(new int[] { 9, 1 });
+        towerIndices.Add(new int[] { 9, 5 });
+        towerIndices.Add(new int[] { 10, 3 });
+        towerIndices.Add(new int[] { 11, 1 });
+        towerIndices.Add(new int[] { 11, 5 });
+        towerIndices.Add(new int[] { 12, 3 });
+
+        // starter values
+        yTiles = 7;
+        xTiles = 14;
+        maxPathTiles = 48;
+        startYindex = 3;
+        endYindex = 3;
+
+        // enemy values
+        timePerSpawn = .25f;
+        numberOfEnemies = 300;
+    }
+
+    public void Level8Towers()
+    {
+        // towers
+
+        // starter values
+
+        // enemy values
+
+    }
+
+    public void Level9Towers()
+    {
+        // towers
+
+        // starter values
+
+        // enemy values
+
+    }
+
+    public void Level10Towers()
+    {
+        // towers
+
+        // starter values
+
+        // enemy values
+
     }
 }
