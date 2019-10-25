@@ -39,6 +39,6 @@ public class RemainingRoadText : MonoBehaviour
             remainingTiles++;
         }
         
-        RemainerText.SetText("Remaining Roads: " + remainingTiles);
+        RemainerText.SetText("Remaining \nRoads: " + remainingTiles);
     }
 }

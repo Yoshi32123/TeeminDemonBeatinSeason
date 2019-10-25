@@ -43,6 +43,9 @@ public class TileManager : MonoBehaviour
     private GameObject lastTileClicked;
     private GameObject twoTilesAgo;
 
+    public GameObject soundStorageObject;
+    private SoundStorage soundStorage;
+
     public GameObject GetStartTile() { return start; }
     public GameObject GetEndTile() { return end; }
 
@@ -56,6 +59,7 @@ public class TileManager : MonoBehaviour
     void Start()
     {
         LoadingLevelStats();
+        soundStorage = soundStorageObject.GetComponent<SoundStorage>();
 
         DetermineTopLeftXandY();
 
@@ -256,6 +260,9 @@ public class TileManager : MonoBehaviour
             endHasBeenReached = true;
             ChangeColor(end, horizontalPath);
             SetCorrectSprites(end);
+
+            soundStorage.creatingPath.GetComponent<SoundManager>().Stop();
+            soundStorage.demonsComing.GetComponent<SoundManager>().Play();
         }
     }
 
@@ -274,6 +281,9 @@ public class TileManager : MonoBehaviour
             // checks if tile is valid for path addition
             if (ValidPath(hit.collider.gameObject))
             {
+                // sound
+                soundStorage.placeNoise.GetComponent<SoundManager>().Play();
+
                 finalPath.Add(lastTileClicked.transform.position);
                 finalPathLinker.Add(lastTileClicked);
 
@@ -497,8 +507,11 @@ public class TileManager : MonoBehaviour
     public void BackOnePath()
     {
         // dont run if path is finished
-        if (!endHasBeenReached)
+        if (!endHasBeenReached && finalPath.Count > 1)
         {
+            // sound
+            soundStorage.backNoise.GetComponent<SoundManager>().Play();
+
             // changing colors
             ChangeColor(twoTilesAgo, greenSprite);
             ChangeColor(lastTileClicked, redSprite);

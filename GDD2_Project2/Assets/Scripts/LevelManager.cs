@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour
     {
         if (tileManager.GetEndHasBeenReached())
         {
-            enemyTimer -= Time.deltaTime * SpeedFunctionality.GameSpeed;
+            enemyTimer -= Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
             if (enemyTimer <= 0 && currentEnemies < numberOfEnemies)
             {
                 Vector3 startPosition = tileManager.GetStartTile().transform.position;
@@ -98,22 +98,16 @@ public class LevelManager : MonoBehaviour
                     {
                         //3 stars
                         stars = 3;
-                        Instantiate(pref_star, new Vector2(-1, 4), Quaternion.identity);
-                        Instantiate(pref_star, new Vector2(0, 4), Quaternion.identity);
-                        Instantiate(pref_star, new Vector2(1, 4), Quaternion.identity);
                     }
                     else if (score >= starThresholds[1])
                     {
                         //2 stars
                         stars = 2;
-                        Instantiate(pref_star, new Vector2(-0.5f, 4), Quaternion.identity);
-                        Instantiate(pref_star, new Vector2(0.5f, 4), Quaternion.identity);
                     }
                     else if (score >= starThresholds[0])
                     {
                         //1 star
                         stars = 1;
-                        Instantiate(pref_star, new Vector2(1, 4), Quaternion.identity);
                     }
                     else
                     {

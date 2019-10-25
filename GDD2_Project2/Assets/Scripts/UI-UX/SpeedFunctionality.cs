@@ -5,14 +5,21 @@ using UnityEngine.UI;
 
 public class SpeedFunctionality : MonoBehaviour
 {
-    public static int GameSpeed = 1;
+    public static int CurrentGameSpeed = 1;
+    public static int StoredGameSpeed = 1; //so leaving level after pausing and coming back will keep game speed the same
     public GameObject SpeedButtonText;
+    public GameObject SpeedButtonText2;
 
     //sets speed to 1 at start
     void Start()
     {
-        GameSpeed = 1;
-        SpeedButtonText.GetComponent<Text>().text = "Speed: x1";
+        if(CurrentGameSpeed == 0)
+        {
+            CurrentGameSpeed = StoredGameSpeed;
+        }
+
+        SpeedButtonText.GetComponent<Text>().text = "Speed: x" + CurrentGameSpeed.ToString();
+        SpeedButtonText2.GetComponent<Text>().text = "Speed: x" + CurrentGameSpeed.ToString();
     }
 
 
@@ -21,10 +28,12 @@ public class SpeedFunctionality : MonoBehaviour
     /// </summary>
     public void ToggleSpeed()
     {
-        GameSpeed++;
-        if (GameSpeed > 3)
-            GameSpeed = 1;
+        CurrentGameSpeed++;
+        if (CurrentGameSpeed > 3)
+            CurrentGameSpeed = 1;
+        StoredGameSpeed = CurrentGameSpeed;
 
-        SpeedButtonText.GetComponent<Text>().text = "Speed: x" + GameSpeed.ToString();
+        SpeedButtonText.GetComponent<Text>().text = "Speed: x" + CurrentGameSpeed.ToString();
+        SpeedButtonText2.GetComponent<Text>().text = "Speed: x" + CurrentGameSpeed.ToString();
     }
 }

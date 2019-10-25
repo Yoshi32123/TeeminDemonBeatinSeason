@@ -26,6 +26,15 @@ public class OverlayToggle : MonoBehaviour
 
         //shows/hides pause screen
         PausedCanvas.SetActive(Paused);
+
+        if (Paused)
+        {
+            SpeedFunctionality.CurrentGameSpeed = 0;
+        }
+        else
+        {
+            SpeedFunctionality.CurrentGameSpeed = SpeedFunctionality.StoredGameSpeed;
+        }
     }
 
     ///<summary>alternates the option state</summary>
