@@ -152,6 +152,10 @@ public class TileManager : MonoBehaviour
         {
             TopLeftY = ((yTiles - 1) / 2 * tileDifferential) - tileDifferential / 2;
         }
+
+        // small changes for button room
+        TopLeftX += tileDifferential + 0.5f;
+        TopLeftY -= 0.5f;
     }
 
     /// <summary>
