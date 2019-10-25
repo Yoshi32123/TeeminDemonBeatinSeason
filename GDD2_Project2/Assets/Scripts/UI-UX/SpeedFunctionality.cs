@@ -8,6 +8,7 @@ public class SpeedFunctionality : MonoBehaviour
     public static int CurrentGameSpeed = 1;
     public static int StoredGameSpeed = 1; //so leaving level after pausing and coming back will keep game speed the same
     public GameObject SpeedButtonText;
+    public GameObject SpeedButtonText2;
 
     //sets speed to 1 at start
     void Start()
@@ -18,6 +19,7 @@ public class SpeedFunctionality : MonoBehaviour
         }
 
         SpeedButtonText.GetComponent<Text>().text = "Speed: x" + CurrentGameSpeed.ToString();
+        SpeedButtonText2.GetComponent<Text>().text = "Speed: x" + CurrentGameSpeed.ToString();
     }
 
 
@@ -32,5 +34,6 @@ public class SpeedFunctionality : MonoBehaviour
         StoredGameSpeed = CurrentGameSpeed;
 
         SpeedButtonText.GetComponent<Text>().text = "Speed: x" + CurrentGameSpeed.ToString();
+        SpeedButtonText2.GetComponent<Text>().text = "Speed: x" + CurrentGameSpeed.ToString();
     }
 }
