@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
-  range: 2
+  range: 1.5
   timeToCoolDown: 0.5
   damage: 1.5
 --- !u!120 &1447167126
