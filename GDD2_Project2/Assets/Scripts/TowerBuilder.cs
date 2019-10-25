@@ -172,11 +172,25 @@ public class TowerBuilder : MonoBehaviour
     public void Level6Towers()
     {
         // towers
+        towerIndices.Add(new int[] { 1, 1 });
+        towerIndices.Add(new int[] { 1, 3 });
+        towerIndices.Add(new int[] { 3, 1 });
+        towerIndices.Add(new int[] { 3, 3 });
+        towerIndices.Add(new int[] { 5, 3 });
+        towerIndices.Add(new int[] { 5, 5 });
+        towerIndices.Add(new int[] { 7, 3 });
+        towerIndices.Add(new int[] { 7, 5 });
 
         // starter values
+        yTiles = 7;
+        xTiles = 9;
+        startYindex = 0;
+        endYindex = 6;
+        maxPathTiles = 23;
 
         // enemy values
-
+        timePerSpawn = .8f;
+        numberOfEnemies = 100;
     }
 
     public void Level7Towers()
@@ -212,30 +226,103 @@ public class TowerBuilder : MonoBehaviour
     public void Level8Towers()
     {
         // towers
+        towerIndices.Add(new int[] { 1, 1 });
+        towerIndices.Add(new int[] { 1, 3 });
+        towerIndices.Add(new int[] { 1, 5 });
+        towerIndices.Add(new int[] { 3, 1 });
+        towerIndices.Add(new int[] { 3, 3 });
+        towerIndices.Add(new int[] { 3, 5 });
+        towerIndices.Add(new int[] { 5, 1 });
+        towerIndices.Add(new int[] { 5, 5 });
+        towerIndices.Add(new int[] { 6, 1 });
+        towerIndices.Add(new int[] { 6, 5 });
+        towerIndices.Add(new int[] { 8, 1 });
+        towerIndices.Add(new int[] { 8, 3 });
+        towerIndices.Add(new int[] { 8, 5 });
+        towerIndices.Add(new int[] { 10, 1 });
+        towerIndices.Add(new int[] { 10, 3 });
+        towerIndices.Add(new int[] { 10, 5 });
 
         // starter values
+        yTiles = 7;
+        xTiles = 12;
+        maxPathTiles = 22;
+        startYindex = 3;
+        endYindex = 3;
 
         // enemy values
+        timePerSpawn = .5f;
+        numberOfEnemies = 300;
 
     }
 
     public void Level9Towers()
     {
         // towers
+        towerIndices.Add(new int[] { 1, 1 });
+        towerIndices.Add(new int[] { 1, 5 });
+        towerIndices.Add(new int[] { 3, 0 });
+        towerIndices.Add(new int[] { 3, 6 });
+        towerIndices.Add(new int[] { 4, 0 });
+        towerIndices.Add(new int[] { 4, 6 });
+        towerIndices.Add(new int[] { 5, 0 });
+        towerIndices.Add(new int[] { 5, 6 });
+        towerIndices.Add(new int[] { 6, 0 });
+        towerIndices.Add(new int[] { 6, 6 });
+        towerIndices.Add(new int[] { 7, 0 });
+        towerIndices.Add(new int[] { 7, 6 });
+        towerIndices.Add(new int[] { 8, 0 });
+        towerIndices.Add(new int[] { 8, 6 });
+        towerIndices.Add(new int[] { 10, 1 });
+        towerIndices.Add(new int[] { 10, 5 });
 
         // starter values
+        yTiles = 7;
+        xTiles = 12;
+        maxPathTiles = 41;
+        startYindex = 3;
+        endYindex = 3;
 
         // enemy values
+        timePerSpawn = .3f;
+        numberOfEnemies = 100;
 
     }
 
     public void Level10Towers()
     {
         // towers
+        towerIndices.Add(new int[] { 1, 0 });
+        towerIndices.Add(new int[] { 1, 2 });
+        towerIndices.Add(new int[] { 3, 0 });
+        towerIndices.Add(new int[] { 3, 2 });
+        towerIndices.Add(new int[] { 3, 4 });
+        towerIndices.Add(new int[] { 5, 2 });
+        towerIndices.Add(new int[] { 5, 4 });
+        towerIndices.Add(new int[] { 5, 6 });
+        towerIndices.Add(new int[] { 7, 2 });
+        towerIndices.Add(new int[] { 7, 4 });
+        towerIndices.Add(new int[] { 7, 6 });
+        towerIndices.Add(new int[] { 9, 0 });
+        towerIndices.Add(new int[] { 9, 2 });
+        towerIndices.Add(new int[] { 9, 4 });
+        towerIndices.Add(new int[] { 11, 0 });
+        towerIndices.Add(new int[] { 11, 2 });
+        towerIndices.Add(new int[] { 13, 0 });
+        towerIndices.Add(new int[] { 13, 2 });
+        towerIndices.Add(new int[] { 13, 4 });
+        towerIndices.Add(new int[] { 13, 6 });
+
 
         // starter values
+        yTiles = 8;
+        xTiles = 16;
+        maxPathTiles = 34;
+        startYindex = 1;
+        endYindex = 7;
 
         // enemy values
-
+        timePerSpawn = .3f;
+        numberOfEnemies = 100;
     }
 }
