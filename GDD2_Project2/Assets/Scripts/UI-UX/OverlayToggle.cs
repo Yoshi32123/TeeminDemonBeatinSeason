@@ -12,7 +12,6 @@ public class OverlayToggle : MonoBehaviour
     public GameObject OptionsCanvas;
     public GameObject WinCanvas;
     public GameObject LostCanvas;
-    private int PrevSpeed = 1;
 
     void Start()
     {
@@ -30,12 +29,11 @@ public class OverlayToggle : MonoBehaviour
 
         if (Paused)
         {
-            PrevSpeed = SpeedFunctionality.GameSpeed;
-            SpeedFunctionality.GameSpeed = 0;
+            SpeedFunctionality.CurrentGameSpeed = 0;
         }
         else
         {
-            SpeedFunctionality.GameSpeed = PrevSpeed;
+            SpeedFunctionality.CurrentGameSpeed = SpeedFunctionality.StoredGameSpeed;
         }
     }
 

@@ -25,6 +25,10 @@ public class LivesRemaining : MonoBehaviour
     void Update()
     {
         int numberOfLives = LevelManagerScript.health;
+
+        if (numberOfLives < 0)
+            numberOfLives = 0;
+
         LivesRemainingText.SetText("Lives \nremaining: " + numberOfLives);
     }
 }
