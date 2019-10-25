@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class Fireball : Projectile
 {
     [Header("Sprites")]
     [SerializeField] Sprite fireball1;
@@ -13,15 +13,18 @@ public class Fireball : MonoBehaviour
     private int spriteCount;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         count = 0;
         spriteCount = 1;
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
+        base.Update();
+
         count++;
 
         if (count > 5)

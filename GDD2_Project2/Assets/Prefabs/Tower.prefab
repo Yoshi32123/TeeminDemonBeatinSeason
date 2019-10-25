@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
+  pref_projectile: {fileID: 6224250005527279472, guid: 0c7597af94f24c944aa70a1e50473869,
+    type: 3}
   range: 1.5
   timeToCoolDown: 0.5
   damage: 1.5

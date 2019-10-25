@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] LevelManager levelManager;
+    LevelManager levelManager;
+    [SerializeField] GameObject pref_projectile;
 
     [SerializeField] float range = 0.0f;
     [SerializeField] float timeToCoolDown = 0.0f;
@@ -46,7 +47,8 @@ public class Tower : MonoBehaviour
         {
             if(cooldownTimer <= 0)
             {
-                target.GetComponent<Enemy>().TakeDamage(damage);
+                GameObject fireball = Instantiate(pref_projectile, transform.position, Quaternion.identity);
+                fireball.GetComponent<Projectile>().SetTarget(target);
                 cooldownTimer = timeToCoolDown;
             }
             Debug.DrawLine(transform.position, target.transform.position, Color.magenta);

@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int[] starThresholds;
 
     TileManager tileManager;
+    AudioSource demonMusic;
 
     float enemyTimer = 0;
     int currentEnemies = 0; //how many enemies have we spawned at any given time
@@ -34,13 +35,13 @@ public class LevelManager : MonoBehaviour
     public bool win = false;
 
     public int health = 0;
-    public void TakeDamage(int damage) { health -= damage; }
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-        tileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
+        tileManager = gameObject.GetComponent<TileManager>();
+        demonMusic = GameObject.Find("demonsComing").GetComponent<AudioSource>();
 
         if (autoGenStarTresholds)
         {
@@ -77,7 +78,7 @@ public class LevelManager : MonoBehaviour
                 if (enemy.GetComponent<Enemy>().GetHasReachedEnd())
                 {
                     enemy.GetComponent<Enemy>().health = 0;
-                    health--;
+                    TakeDamage(1);
                     enemyInteractions++;
                     Debug.Log("health: " + health);
                 }
@@ -180,6 +181,27 @@ public class LevelManager : MonoBehaviour
         }
         return null;
     }
+    public void TakeDamage(int damage) {
+        health -= damage;
+        switch (health)
+        {
+            case 4:
+                demonMusic.pitch = 1.0f;
+                break;
+            case 3:
+                demonMusic.pitch = 1.1f;
+                break;
+            case 2:
+                demonMusic.pitch = 1.25f;
+                break;
+            case 1:
+                demonMusic.pitch = 1.4f;
+                break;
+            default:
+                break;
+        }
+    }
+
 
     public void AddScore(int value) { score += value; }
     public bool GetEndHasBeenReached() { return tileManager.GetEndHasBeenReached(); }
