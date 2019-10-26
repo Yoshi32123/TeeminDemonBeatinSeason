@@ -1146,6 +1146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setLevel: 7
+  towerRanges: []
   xTiles: 500
   yTiles: 500
   maxPathTiles: 500

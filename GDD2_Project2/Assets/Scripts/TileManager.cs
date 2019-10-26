@@ -233,7 +233,6 @@ public class TileManager : MonoBehaviour
         {
             GameObject towerSave = Instantiate(tower, starterTiles[towers[i][0], towers[i][1]].transform.position, Quaternion.identity);
             towerSave.GetComponent<Tower>().range = ranges[i];
-            Debug.Log(ranges[i]);
             Destroy(starterTiles[towers[i][0], towers[i][1]]);
             starterTiles[towers[i][0], towers[i][1]] = towerSave;
         }
