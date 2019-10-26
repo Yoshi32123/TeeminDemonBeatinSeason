@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public void SetTarget(GameObject t) { target = t; }
     Vector2 position;
     Vector2 direction;
+    float turnSlerp = 0.0f;
     [SerializeField] float speed;
     [SerializeField] float damage;
     float hitRange = 0.1f;
@@ -29,12 +30,12 @@ public class Projectile : MonoBehaviour
         if (target != null)
         {
             direction = (target.transform.position - transform.position).normalized;
-            //transform.rotation = Quaternion.LookRotation(direction, Vector2.up);
             float angle = Mathf.Atan2((target.transform.position - transform.position).y,
-                (target.transform.position - transform.position).x) 
+                (target.transform.position - transform.position).x)
                 * Mathf.Rad2Deg;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), 360.0f);
         }
+        //transform.Translate(direction * speed);
         position += direction * speed;
         transform.position = position;
     }
@@ -46,5 +47,10 @@ public class Projectile : MonoBehaviour
             target.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

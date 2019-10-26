@@ -8,6 +8,7 @@ public class TowerBuilder : MonoBehaviour
 
     public int setLevel;
     public List<int[]> towerIndices = new List<int[]>();
+    public List<float> towerRanges = new List<float>();
     public int xTiles;
     public int yTiles;
     public int maxPathTiles;
@@ -80,6 +81,9 @@ public class TowerBuilder : MonoBehaviour
     {
         // towers
         towerIndices.Add(new int[] { 2, 1 });
+        
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
 
         // starter values
         xTiles = 5;
@@ -97,6 +101,10 @@ public class TowerBuilder : MonoBehaviour
         // towers
         towerIndices.Add(new int[] { 2, 1 });
         towerIndices.Add(new int[] { 4, 5 });
+
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
 
         // starter values
         xTiles = 7;
@@ -116,6 +124,10 @@ public class TowerBuilder : MonoBehaviour
         towerIndices.Add(new int[] { 3, 1 });
         towerIndices.Add(new int[] { 3, 3 });
 
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+
         // starter values
         xTiles = 7;
         yTiles = 5;
@@ -134,6 +146,11 @@ public class TowerBuilder : MonoBehaviour
         towerIndices.Add(new int[] { 1, 5 });
         towerIndices.Add(new int[] { 3, 5 });
         towerIndices.Add(new int[] { 5, 5 });
+
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
 
         // starter values
         xTiles = 7;
@@ -156,6 +173,14 @@ public class TowerBuilder : MonoBehaviour
         towerIndices.Add(new int[] { 3, 6 });
         towerIndices.Add(new int[] { 4, 6 });
         towerIndices.Add(new int[] { 5, 6 });
+
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
 
         // starter values
         yTiles = 7;
@@ -180,6 +205,16 @@ public class TowerBuilder : MonoBehaviour
         towerIndices.Add(new int[] { 5, 5 });
         towerIndices.Add(new int[] { 7, 3 });
         towerIndices.Add(new int[] { 7, 5 });
+
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
 
         // starter values
         yTiles = 7;
@@ -210,6 +245,22 @@ public class TowerBuilder : MonoBehaviour
         towerIndices.Add(new int[] { 11, 1 });
         towerIndices.Add(new int[] { 11, 5 });
         towerIndices.Add(new int[] { 12, 3 });
+
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
 
         // starter values
         yTiles = 7;
@@ -243,6 +294,24 @@ public class TowerBuilder : MonoBehaviour
         towerIndices.Add(new int[] { 10, 3 });
         towerIndices.Add(new int[] { 10, 5 });
 
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+
         // starter values
         yTiles = 7;
         xTiles = 12;
@@ -275,6 +344,24 @@ public class TowerBuilder : MonoBehaviour
         towerIndices.Add(new int[] { 8, 6 });
         towerIndices.Add(new int[] { 10, 1 });
         towerIndices.Add(new int[] { 10, 5 });
+
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
 
         // starter values
         yTiles = 7;
@@ -312,6 +399,28 @@ public class TowerBuilder : MonoBehaviour
         towerIndices.Add(new int[] { 13, 2 });
         towerIndices.Add(new int[] { 13, 4 });
         towerIndices.Add(new int[] { 13, 6 });
+
+        //ranges (add in same order as towers)
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
+        towerRanges.Add(1.5f);
 
 
         // starter values

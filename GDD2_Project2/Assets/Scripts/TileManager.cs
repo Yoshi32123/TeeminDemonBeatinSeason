@@ -52,6 +52,7 @@ public class TileManager : MonoBehaviour
     LevelManager levelManager;
     TowerBuilder towerbuilder;
     private List<int[]> towers;
+    private List<float> ranges;
 
     #endregion
 
@@ -226,10 +227,13 @@ public class TileManager : MonoBehaviour
     {
         // Setting towers into matrix
         towers = towerbuilder.towerIndices;
+        ranges = towerbuilder.towerRanges;
 
         for (int i = 0; i < towers.Count; i++)
         {
             GameObject towerSave = Instantiate(tower, starterTiles[towers[i][0], towers[i][1]].transform.position, Quaternion.identity);
+            towerSave.GetComponent<Tower>().range = ranges[i];
+            Debug.Log(ranges[i]);
             Destroy(starterTiles[towers[i][0], towers[i][1]]);
             starterTiles[towers[i][0], towers[i][1]] = towerSave;
         }

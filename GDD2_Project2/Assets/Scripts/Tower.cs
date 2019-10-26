@@ -7,7 +7,7 @@ public class Tower : MonoBehaviour
     LevelManager levelManager;
     [SerializeField] GameObject pref_projectile;
 
-    [SerializeField] float range = 0.0f;
+    [SerializeField] public float range = 0.0f;
     [SerializeField] float timeToCoolDown = 0.0f;
     [SerializeField] float damage = 0;
     float cooldownTimer;
