@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), 360.0f);
         }
         //transform.Translate(direction * speed);
-        position += direction * speed;
+        position += direction * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
         transform.position = position;
     }
 
