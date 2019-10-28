@@ -1154,6 +1154,7 @@ MonoBehaviour:
   endYindex: 3
   timePerSpawn: 2
   numberOfEnemies: 50
+  enemyHP: 10
 --- !u!114 &350560200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1170,6 +1171,7 @@ MonoBehaviour:
     type: 3}
   timePerSpawn: 1
   numberOfEnemies: 5
+  enemyHP: 0
   maxHealth: 4
   scoreTxt: {fileID: 422714836}
   pref_star: {fileID: 268313581136177728, guid: a5ab76b083c9eb24aa16adc78507fc14,

@@ -115,6 +115,8 @@ public class TileManager : MonoBehaviour
         levelManager = gameObject.GetComponent<LevelManager>();
         levelManager.timePerSpawn = towerbuilder.timePerSpawn;
         levelManager.numberOfEnemies = towerbuilder.numberOfEnemies;
+
+        levelManager.enemyHP = towerbuilder.enemyHP;
     }
 
     /// <summary>
