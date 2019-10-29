@@ -647,13 +647,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5137631812723104129, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e14c9ad683ae1cb488de5efb3445bf99, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9138f7b1039fd5429180bebc05f385d, type: 3}
+--- !u!114 &158482382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1841152196752521017, guid: e9138f7b1039fd5429180bebc05f385d,
+    type: 3}
+  m_PrefabInstance: {fileID: 158482381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2814930274861e4db13e796503d01dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &346476412
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +821,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 978527931}
         m_MethodName: doExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 158482382}
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3455,6 +3473,17 @@ MonoBehaviour:
           m_StringArgument: LoreScene
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 158482382}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1701544275
@@ -3853,6 +3882,17 @@ MonoBehaviour:
           m_StringArgument: LevelSelectionScene
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 158482382}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1836667205
@@ -4442,6 +4482,17 @@ MonoBehaviour:
           m_StringArgument: OptionScene
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 158482382}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2066718468
