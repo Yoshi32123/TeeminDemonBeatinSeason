@@ -915,10 +915,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29f803fa64b48c4ea6ea2cb3787c8de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleMusic: {fileID: 943414003245684715}
   demonsComing: {fileID: 5137631813175720690}
   creatingPath: {fileID: 5137631812723104127}
   backNoise: {fileID: 5137631813490208267}
   pathNoise: {fileID: 5137631813152748582}
+  buttonClickNoise: {fileID: 4340482210291999552}
+  pauseClickNoise: {fileID: 3890567187009347399}
 --- !u!1 &5137631813490208267
 GameObject:
   m_ObjectHideFlags: 0
