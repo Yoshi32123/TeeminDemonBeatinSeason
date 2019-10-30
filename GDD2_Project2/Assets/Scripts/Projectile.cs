@@ -39,6 +39,10 @@ public class Projectile : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.transform.rotation, targetRotation, turnSlerp);
             turnSlerp += Time.deltaTime * SpeedFunctionality.CurrentGameSpeed * turnSpeed;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         position += (Vector2)transform.right * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
         transform.position = position;
