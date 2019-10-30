@@ -29,6 +29,6 @@ public class LivesRemaining : MonoBehaviour
         if (numberOfLives < 0)
             numberOfLives = 0;
 
-        LivesRemainingText.SetText("Lives \nremaining: " + numberOfLives);
+        LivesRemainingText.SetText("Lives \nleft: " + numberOfLives);
     }
 }

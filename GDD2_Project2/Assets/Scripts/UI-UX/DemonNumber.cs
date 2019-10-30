@@ -9,6 +9,8 @@ public class DemonNumber : MonoBehaviour
     private TowerBuilder TowerBuilderScript;
     private TileManager TileManagerScript;
     public GameObject TileManagerGO;
+    static public int DemonsRemoved = 0;
+    private int DemonMaxCount;
 
     /// <summary>
     /// Gets the tile manager script from the tile manager object
@@ -19,6 +21,8 @@ public class DemonNumber : MonoBehaviour
         TowerBuilderScript = TileManagerGO.GetComponent<TowerBuilder>();
         TileManagerScript = TileManagerGO.GetComponent<TileManager>();
         DemonComingText = gameObject.GetComponent<TextMeshProUGUI>();
+        DemonsRemoved = 0;
+        DemonMaxCount = TowerBuilderScript.numberOfEnemies;
     }
 
     /// <summary>
@@ -28,12 +32,12 @@ public class DemonNumber : MonoBehaviour
     {
         if (!TileManagerScript.GetEndHasBeenReached())
         {
-            int numberOfDemons = TowerBuilderScript.numberOfEnemies;
-            DemonComingText.SetText("Demons \nincoming: " + numberOfDemons);
+            DemonMaxCount = TowerBuilderScript.numberOfEnemies;
+            DemonComingText.SetText("Demons \ncoming: " + DemonMaxCount);
         }
         else
         {
-            DemonComingText.enabled = false;
+            DemonComingText.SetText("Demons \nLeft: " + (DemonMaxCount - DemonsRemoved));
         }
     }
 }

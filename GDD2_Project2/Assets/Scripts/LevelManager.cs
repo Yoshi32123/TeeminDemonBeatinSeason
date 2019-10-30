@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Score")]
     [SerializeField] Text scoreTxt;
+    [SerializeField] Text scoreTxt2;
     [SerializeField] GameObject pref_star;
     [SerializeField] bool autoGenStarTresholds;
     [SerializeField] int[] starThresholds;
@@ -53,7 +54,7 @@ public class LevelManager : MonoBehaviour
             starThresholds[2] = numberOfEnemies * Enemy.scorePerKill;
         }
 
-        scoreTxt.text = "Score: " + score;
+        scoreTxt.text = scoreTxt2.text = "Score: \n" + score;
     }
 
     // Update is called once per frame
@@ -86,12 +87,14 @@ public class LevelManager : MonoBehaviour
                     TakeDamage(1);
                     enemyInteractions++;
                     Debug.Log("health: " + health);
+                    DemonNumber.DemonsRemoved++;
                 }
                 else if(enemy.GetComponent<Enemy>().health <= 0)
                 {
                     score += Enemy.scorePerKill;
                     enemyInteractions++;
-                    scoreTxt.text = "Score: " + score;
+                    scoreTxt.text = scoreTxt2.text = "Score: \n" + score;
+                    DemonNumber.DemonsRemoved++;
                 }
             }
 
