@@ -1,5 +1,8 @@
-“Sound effects obtained from https://www.zapsplat.com“ : back, done, place, place2
+“Sound effects obtained from https://www.zapsplat.com“ : back, done, place, place2, pause, normalButton
 
 Faux Moon Sax by Speck (c) copyright 2019 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/speck/60253 Ft: billraydrums, Martijn de Boer
 
 Groovin' by texasradiofish (c) copyright 2019 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/texasradiofish/59695 Ft: ElRon XChile, unreal_dm, Admiral Bob
+
+Near What's True by Speck (c) copyright 2019 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/speck/60468 Ft: Apoxode
+
