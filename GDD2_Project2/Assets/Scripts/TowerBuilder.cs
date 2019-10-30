@@ -80,11 +80,13 @@ public class TowerBuilder : MonoBehaviour
 
     public void Level1Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 2, 1 });
         
         //ranges (add in same order as towers)
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         xTiles = 5;
@@ -96,11 +98,12 @@ public class TowerBuilder : MonoBehaviour
         // enemy values
         numberOfEnemies = 4;
         timePerSpawn = 2.7f;
-        enemyHP = 10;
+        enemyHP = 7;
     }
 
     public void Level2Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 2, 1 });
         towerIndices.Add(new int[] { 4, 5 });
@@ -108,6 +111,7 @@ public class TowerBuilder : MonoBehaviour
         //ranges (add in same order as towers)
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         xTiles = 7;
@@ -119,11 +123,12 @@ public class TowerBuilder : MonoBehaviour
         // enemy values
         timePerSpawn = 1.3f;
         numberOfEnemies = 6;
-        enemyHP = 10;
+        enemyHP = 9;
     }
 
     public void Level3Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 3, 1 });
         towerIndices.Add(new int[] { 3, 3 });
@@ -131,6 +136,7 @@ public class TowerBuilder : MonoBehaviour
         //ranges (add in same order as towers)
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         xTiles = 7;
@@ -142,11 +148,12 @@ public class TowerBuilder : MonoBehaviour
         // enemy values
         timePerSpawn = 1.2f;
         numberOfEnemies = 7;
-        enemyHP = 10;
+        enemyHP = 9;
     }
 
     public void Level4Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 1, 5 });
         towerIndices.Add(new int[] { 3, 5 });
@@ -156,6 +163,7 @@ public class TowerBuilder : MonoBehaviour
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         xTiles = 7;
@@ -165,12 +173,14 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 1;
 
         // enemy values
-        timePerSpawn = .8f;
+        timePerSpawn = 1.0f;
         numberOfEnemies = 8;
+        enemyHP = 8;
     }
 
     public void Level5Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 2, 1 });
         towerIndices.Add(new int[] { 4, 1 });
@@ -186,6 +196,7 @@ public class TowerBuilder : MonoBehaviour
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         yTiles = 7;
@@ -195,13 +206,14 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 5;
 
         // enemy values
-        timePerSpawn = .98f;
+        timePerSpawn = 1.0f;
         numberOfEnemies = 11;
-        enemyHP = 10;
+        enemyHP = 9;
     }
 
     public void Level6Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 1, 1 });
         towerIndices.Add(new int[] { 1, 3 });
@@ -221,6 +233,7 @@ public class TowerBuilder : MonoBehaviour
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         yTiles = 7;
@@ -230,13 +243,14 @@ public class TowerBuilder : MonoBehaviour
         maxPathTiles = 23;
 
         // enemy values
-        timePerSpawn = .3f;
+        timePerSpawn = .9f;
         numberOfEnemies = 20;
-        enemyHP = 10;
+        enemyHP = 19;
     }
 
     public void Level7Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 1, 3 });
         towerIndices.Add(new int[] { 2, 1 });
@@ -268,6 +282,7 @@ public class TowerBuilder : MonoBehaviour
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         yTiles = 7;
@@ -277,13 +292,14 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 3;
 
         // enemy values
-        timePerSpawn = .25f;
-        numberOfEnemies = 50;
-        enemyHP = 10;
+        timePerSpawn = 1f;
+        numberOfEnemies = 30;
+        enemyHP = 40;
     }
 
     public void Level8Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 1, 1 });
         towerIndices.Add(new int[] { 1, 3 });
@@ -319,6 +335,7 @@ public class TowerBuilder : MonoBehaviour
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         yTiles = 7;
@@ -328,13 +345,14 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 3;
 
         // enemy values
-        timePerSpawn = .5f;
-        numberOfEnemies = 300;
-        enemyHP = 10;
+        timePerSpawn = 1f;
+        numberOfEnemies = 20;
+        enemyHP = 35;
     }
 
     public void Level9Towers()
     {
+        #region towers
         // towers
         towerIndices.Add(new int[] { 1, 1 });
         towerIndices.Add(new int[] { 1, 5 });
@@ -370,6 +388,7 @@ public class TowerBuilder : MonoBehaviour
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
         // starter values
         yTiles = 7;
@@ -379,34 +398,35 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 3;
 
         // enemy values
-        timePerSpawn = .3f;
-        numberOfEnemies = 100;
-
+        timePerSpawn = .98f;
+        numberOfEnemies = 20;
+        enemyHP = 33;
     }
 
     public void Level10Towers()
     {
+        #region towers
         // towers
-        towerIndices.Add(new int[] { 1, 0 });
-        towerIndices.Add(new int[] { 1, 2 });
-        towerIndices.Add(new int[] { 3, 0 });
-        towerIndices.Add(new int[] { 3, 2 });
-        towerIndices.Add(new int[] { 3, 4 });
-        towerIndices.Add(new int[] { 5, 2 });
-        towerIndices.Add(new int[] { 5, 4 });
-        towerIndices.Add(new int[] { 5, 6 });
-        towerIndices.Add(new int[] { 7, 2 });
-        towerIndices.Add(new int[] { 7, 4 });
-        towerIndices.Add(new int[] { 7, 6 });
-        towerIndices.Add(new int[] { 9, 0 });
-        towerIndices.Add(new int[] { 9, 2 });
-        towerIndices.Add(new int[] { 9, 4 });
-        towerIndices.Add(new int[] { 11, 0 });
-        towerIndices.Add(new int[] { 11, 2 });
-        towerIndices.Add(new int[] { 13, 0 });
-        towerIndices.Add(new int[] { 13, 2 });
-        towerIndices.Add(new int[] { 13, 4 });
-        towerIndices.Add(new int[] { 13, 6 });
+        towerIndices.Add(new int[] { 0, 0 });
+        towerIndices.Add(new int[] { 0, 2 });
+        towerIndices.Add(new int[] { 2, 0 });
+        towerIndices.Add(new int[] { 2, 2 });
+        towerIndices.Add(new int[] { 2, 4 });
+        towerIndices.Add(new int[] { 4, 2 });
+        towerIndices.Add(new int[] { 4, 4 });
+        towerIndices.Add(new int[] { 4, 6 });
+        towerIndices.Add(new int[] { 6, 2 });
+        towerIndices.Add(new int[] { 6, 4 });
+        towerIndices.Add(new int[] { 6, 6 });
+        towerIndices.Add(new int[] { 8, 0 });
+        towerIndices.Add(new int[] { 8, 2 });
+        towerIndices.Add(new int[] { 8, 4 });
+        towerIndices.Add(new int[] { 10, 0 });
+        towerIndices.Add(new int[] { 10, 2 });
+        towerIndices.Add(new int[] { 12, 0 });
+        towerIndices.Add(new int[] { 12, 2 });
+        towerIndices.Add(new int[] { 12, 4 });
+        towerIndices.Add(new int[] { 12, 6 });
 
         //ranges (add in same order as towers)
         towerRanges.Add(1.5f);
@@ -429,18 +449,19 @@ public class TowerBuilder : MonoBehaviour
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
         towerRanges.Add(1.5f);
+        #endregion
 
 
         // starter values
         yTiles = 8;
-        xTiles = 16;
-        maxPathTiles = 34;
+        xTiles = 14;
+        maxPathTiles = 32;
         startYindex = 1;
         endYindex = 7;
 
         // enemy values
-        timePerSpawn = .3f;
-        numberOfEnemies = 100;
-        enemyHP = 10;
+        timePerSpawn = .98f;
+        numberOfEnemies = 29;
+        enemyHP = 55;
     }
 }
