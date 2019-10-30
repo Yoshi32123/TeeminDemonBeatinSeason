@@ -679,17 +679,6 @@ MonoBehaviour:
           m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1047819681}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &848733769
@@ -812,92 +801,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1047819680
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5137631813418286970, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_Name
-      value: SoundStorage
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.6533763
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.2214139
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -27.023438
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137631813418286971, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4005893468801506291, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e9138f7b1039fd5429180bebc05f385d, type: 3}
---- !u!114 &1047819681 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1841152196752521017, guid: e9138f7b1039fd5429180bebc05f385d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1047819680}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2814930274861e4db13e796503d01dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1054990122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,8 +953,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506040537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.002, y: -0.026, z: -5}
-  m_LocalScale: {x: 4.4224563, y: 3.6149905, z: 1}
+  m_LocalPosition: {x: 0.012, y: -0.012, z: -5}
+  m_LocalScale: {x: 5.2766385, y: 3.625868, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1

@@ -9,8 +9,6 @@ public class SoundStorage : MonoBehaviour
     public GameObject placeNoise;
     public GameObject demonsComing;
     public GameObject creatingPath;
-    public GameObject buttonClick;
-    public GameObject pauseClick;
 
     // Start is called before the first frame update
     void Start()

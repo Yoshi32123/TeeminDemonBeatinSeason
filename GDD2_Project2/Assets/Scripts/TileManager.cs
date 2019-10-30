@@ -25,7 +25,6 @@ public class TileManager : MonoBehaviour
 
     public GameObject tower;
     public GameObject templateSquare;
-    public GameObject backgroundTile;
     public Sprite redSprite;
     public Sprite blueSprite;
     public Sprite greenSprite;
@@ -60,8 +59,6 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BackgroundSetter();
-
         LoadingLevelStats();
         soundStorage = soundStorageObject.GetComponent<SoundStorage>();
 
@@ -118,39 +115,6 @@ public class TileManager : MonoBehaviour
         levelManager = gameObject.GetComponent<LevelManager>();
         levelManager.timePerSpawn = towerbuilder.timePerSpawn;
         levelManager.numberOfEnemies = towerbuilder.numberOfEnemies;
-
-        levelManager.enemyHP = towerbuilder.enemyHP;
-    }
-
-    /// <summary>
-    ///  Sets the background image tiles for the level
-    /// </summary>
-    public void BackgroundSetter()
-    {
-        // setting up matrix values
-        startUpX = new float[40];
-        startUpY = new float[30];
-        if (tileDifferential == 0.0f)
-            tileDifferential = 1.05f;
-
-        // inputting base values for matrix
-        for (int i = 0; i < startUpX.Length; i++)
-        {
-            startUpX[i] = -20.0f + (tileDifferential * i);
-        }
-        for (int i = 0; i < startUpY.Length; i++)
-        {
-            startUpY[i] = 20.0f - (tileDifferential * i);
-        }
-
-        // instantiating objects and adding to 2D array
-        for (int i = 0; i < startUpX.Length; i++)
-        {
-            for (int j = 0; j < startUpY.Length; j++)
-            {
-                Instantiate(backgroundTile, new Vector3(startUpX[i], startUpY[j], 5), Quaternion.identity);
-            }
-        }
     }
 
     /// <summary>

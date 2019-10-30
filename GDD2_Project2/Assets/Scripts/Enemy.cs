@@ -107,13 +107,4 @@ public class Enemy : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = facingFront;
         }
     }
-
-    /// <summary>
-    /// Changes the maximum hp of the enemy to the input parameter
-    /// </summary>
-    /// <param name="newMax">the new maximum hp for the enemy</param>
-    public void SetMaxHP(int newMax)
-    {
-        maxHealth = newMax;
-    }
 }
