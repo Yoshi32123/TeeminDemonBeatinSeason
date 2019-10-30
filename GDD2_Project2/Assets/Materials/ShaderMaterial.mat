@@ -26,6 +26,6 @@ Material:
     m_Floats:
     - _Brightness: -0.42128393
     - _Contrast: 3
-    - _Saturation: 0.17820367
+    - _Saturation: 1.3329711
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
