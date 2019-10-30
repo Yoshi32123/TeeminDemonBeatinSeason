@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     float turnSlerp = 0.0f;
     [SerializeField] float speed;
     [SerializeField] float damage;
+    [SerializeField] float turnSpeed;
     float hitRange = 0.1f;
     // Start is called before the first frame update
     protected void Start()
@@ -28,32 +29,18 @@ public class Projectile : MonoBehaviour
 
     protected void Move()
     {
-        //if(target != null)
-        //{
-        //    float angle = Mathf.Atan2((target.transform.position - transform.position).y,
-        //        (target.transform.position - transform.position).x)
-        //        * Mathf.Rad2Deg;
-
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle), turnSlerp);
-        //    turnSlerp += Time.deltaTime * SpeedFunctionality.CurrentGameSpeed * 0.1f;
-        //}
-
-        //position.x += Mathf.Cos(transform.rotation.z * Mathf.Deg2Rad) * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
-        //position.y += Mathf.Sin(transform.rotation.z * Mathf.Deg2Rad) * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
-        //Debug.Log("X: " + Mathf.Cos(transform.rotation.z * Mathf.Deg2Rad));
-        //Debug.Log("Y: " + Mathf.Sin(transform.rotation.z * Mathf.Deg2Rad));
-        //transform.position = position;
-
-
         if (target != null)
         {
-            direction = (target.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2((target.transform.position - transform.position).y,
                 (target.transform.position - transform.position).x)
                 * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), 360.0f);
+
+            Quaternion targetRotation = Quaternion.Euler(0,0,angle);
+            transform.rotation = Quaternion.Slerp(transform.transform.rotation, targetRotation, turnSlerp);
+            turnSlerp += Time.deltaTime * SpeedFunctionality.CurrentGameSpeed * turnSpeed;
         }
-        position += direction * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
+
+        position += (Vector2)transform.right * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
         transform.position = position;
     }
 
