@@ -37,6 +37,9 @@ public class TileManager : MonoBehaviour
     public Sprite turn_upRight;
     public Sprite verticalPath;
 
+    public Sprite portal;
+    public Sprite gate;
+
     private int startYIndex;
     private int endYIndex;
     private GameObject start;
@@ -303,6 +306,9 @@ public class TileManager : MonoBehaviour
             endHasBeenReached = true;
             ChangeColor(end, horizontalPath);
             SetCorrectSprites(end);
+
+            ChangeColor(start, portal);
+            ChangeColor(end, gate);
 
             soundStorage.creatingPath.GetComponent<SoundManager>().Stop();
             soundStorage.demonsComing.GetComponent<SoundManager>().Play();
