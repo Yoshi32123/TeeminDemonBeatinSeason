@@ -19,7 +19,6 @@ public class LevelManager : MonoBehaviour
 
     [Header("Score")]
     [SerializeField] Text scoreTxt;
-    [SerializeField] Text scoreTxt2;
     [SerializeField] GameObject pref_star;
     [SerializeField] bool autoGenStarTresholds;
     [SerializeField] int[] starThresholds;
@@ -55,7 +54,6 @@ public class LevelManager : MonoBehaviour
         }
 
         scoreTxt.text = "Score: " + score;
-        scoreTxt2.text = "Score: " + score;
     }
 
     // Update is called once per frame
