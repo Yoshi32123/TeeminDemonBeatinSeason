@@ -11,6 +11,7 @@ public class SoundStorage : MonoBehaviour
     public GameObject creatingPath;
     public GameObject buttonClick;
     public GameObject pauseClick;
+    public GameObject fireball;
 
     // Start is called before the first frame update
     void Start()
