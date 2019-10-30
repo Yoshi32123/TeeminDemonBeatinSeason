@@ -47,7 +47,14 @@ public class SceneSwitcher : MonoBehaviour
     public void LoadNextLevel()
     {
         TowerBuilder.currentLevel = TowerBuilder.currentLevel+1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if(TowerBuilder.currentLevel == 11)
+        {
+            SceneManager.LoadScene("CreditScene");
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     /**
