@@ -167,6 +167,7 @@ public class TowerBuilder : MonoBehaviour
         // enemy values
         timePerSpawn = .8f;
         numberOfEnemies = 8;
+        enemyHP = 10;
     }
 
     public void Level5Towers()
