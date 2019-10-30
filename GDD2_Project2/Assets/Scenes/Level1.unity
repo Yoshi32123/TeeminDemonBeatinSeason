@@ -1131,7 +1131,7 @@ MonoBehaviour:
   turn_downRight: {fileID: 21300000, guid: ca46a67b9f4542c49905b605d562f085, type: 3}
   turn_upRight: {fileID: 21300000, guid: 19f709ad2b628de45b4e86fc59ce35f5, type: 3}
   verticalPath: {fileID: 21300000, guid: f3c85bff2804c4e4483bb9730310fbf2, type: 3}
-  soundStorageObject: {fileID: 1543326330}
+  soundStorageObject: {fileID: 1604573963}
 --- !u!4 &350560198
 Transform:
   m_ObjectHideFlags: 0
@@ -5599,79 +5599,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536623460}
   m_CullTransparentMesh: 0
-<<<<<<< HEAD
---- !u!1 &1543326330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1543326331}
-  - component: {fileID: 1543326332}
-  - component: {fileID: 1543326333}
-  m_Layer: 0
-  m_Name: SoundStorage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1543326331
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543326330}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6533763, y: -3.2214139, z: -27.023438}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1604573964}
-  - {fileID: 1270907177}
-  - {fileID: 1231163379}
-  - {fileID: 1919741056}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1543326332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543326330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6a937f19f6d0e742b1b2e8c995d7599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backNoise: {fileID: 1604573963}
-  placeNoise: {fileID: 1270907174}
-  demonsComing: {fileID: 1231163378}
-  creatingPath: {fileID: 1919741055}
---- !u!114 &1543326333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543326330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b29f803fa64b48c4ea6ea2cb3787c8de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  demonsComing: {fileID: 1231163378}
-  creatingPath: {fileID: 1919741055}
-  backNoise: {fileID: 1604573963}
-  pathNoise: {fileID: 1270907174}
---- !u!1 &1604573963
-=======
---- !u!1 &1543326330 stripped
->>>>>>> parent of 3f88d62... Revert "whatever"
+--- !u!1 &1604573963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5137631813418286970, guid: e9138f7b1039fd5429180bebc05f385d,
     type: 3}
@@ -8717,6 +8645,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4005893468801506291, guid: e9138f7b1039fd5429180bebc05f385d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5137631812723104129, guid: e9138f7b1039fd5429180bebc05f385d,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -8727,11 +8660,6 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: e14c9ad683ae1cb488de5efb3445bf99, type: 3}
-    - target: {fileID: 4005893468801506291, guid: e9138f7b1039fd5429180bebc05f385d,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9138f7b1039fd5429180bebc05f385d, type: 3}
 --- !u!222 &5174749882406551959
