@@ -28,30 +28,33 @@ public class Projectile : MonoBehaviour
 
     protected void Move()
     {
-        if(target != null)
-        {
-            float angle = Mathf.Atan2((target.transform.position - transform.position).y,
-                (target.transform.position - transform.position).x)
-                * Mathf.Rad2Deg;
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle), turnSlerp);
-            turnSlerp += Time.deltaTime * SpeedFunctionality.CurrentGameSpeed * 0.1f;
-        }
-
-        position += (Vector2)transform.forward * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
-        Debug.Log((Vector2)transform.forward * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed);
-        transform.position = position;
-
-        //if (target != null)
+        //if(target != null)
         //{
-        //    direction = (target.transform.position - transform.position).normalized;
         //    float angle = Mathf.Atan2((target.transform.position - transform.position).y,
         //        (target.transform.position - transform.position).x)
         //        * Mathf.Rad2Deg;
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), 360.0f);
+
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle), turnSlerp);
+        //    turnSlerp += Time.deltaTime * SpeedFunctionality.CurrentGameSpeed * 0.1f;
         //}
-        //position += direction * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
+
+        //position.x += Mathf.Cos(transform.rotation.z * Mathf.Deg2Rad) * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
+        //position.y += Mathf.Sin(transform.rotation.z * Mathf.Deg2Rad) * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
+        //Debug.Log("X: " + Mathf.Cos(transform.rotation.z * Mathf.Deg2Rad));
+        //Debug.Log("Y: " + Mathf.Sin(transform.rotation.z * Mathf.Deg2Rad));
         //transform.position = position;
+
+
+        if (target != null)
+        {
+            direction = (target.transform.position - transform.position).normalized;
+            float angle = Mathf.Atan2((target.transform.position - transform.position).y,
+                (target.transform.position - transform.position).x)
+                * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), 360.0f);
+        }
+        position += direction * speed * Time.deltaTime * SpeedFunctionality.CurrentGameSpeed;
+        transform.position = position;
     }
 
     private void CheckHit()
