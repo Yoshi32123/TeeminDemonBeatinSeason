@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d9a234658ac7345b3a8af4ee8ece91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   damage: 1.5
   fireball1: {fileID: 21300000, guid: d540c40ded73a5d428e7e46aa389e1d6, type: 3}
   fireball2: {fileID: 21300000, guid: e377a7c11634b5640af03c4c47fa9d0c, type: 3}

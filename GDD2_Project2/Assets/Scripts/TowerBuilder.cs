@@ -17,7 +17,6 @@ public class TowerBuilder : MonoBehaviour
 
     public float timePerSpawn;
     public int numberOfEnemies;
-    public float enemyHP;
 
 
     // needs to be Awake() so it can set level before the Setter(). [ Start() will run after Setter() ]
@@ -94,8 +93,7 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 2;
 
         // enemy values
-        numberOfEnemies = 4;
-        timePerSpawn = 2.7f;
+        numberOfEnemies = 1;
     }
 
     public void Level2Towers()
@@ -116,8 +114,8 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 3;
 
         // enemy values
-        timePerSpawn = 1.3f;
-        numberOfEnemies = 6;
+        timePerSpawn = 2;
+        numberOfEnemies = 3;
     }
 
     public void Level3Towers()
@@ -162,7 +160,7 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 1;
 
         // enemy values
-        timePerSpawn = .8f;
+        timePerSpawn = 1;
         numberOfEnemies = 8;
     }
 
@@ -192,8 +190,8 @@ public class TowerBuilder : MonoBehaviour
         endYindex = 5;
 
         // enemy values
-        timePerSpawn = .98f;
-        numberOfEnemies = 11;
+        timePerSpawn = .95f;
+        numberOfEnemies = 10;
     }
 
     public void Level6Towers()
@@ -226,8 +224,8 @@ public class TowerBuilder : MonoBehaviour
         maxPathTiles = 23;
 
         // enemy values
-        timePerSpawn = .3f;
-        numberOfEnemies = 20;
+        timePerSpawn = .8f;
+        numberOfEnemies = 100;
     }
 
     public void Level7Towers()
@@ -273,8 +271,7 @@ public class TowerBuilder : MonoBehaviour
 
         // enemy values
         timePerSpawn = .25f;
-        numberOfEnemies = 50;
-        enemyHP = 1;
+        numberOfEnemies = 300;
     }
 
     public void Level8Towers()
