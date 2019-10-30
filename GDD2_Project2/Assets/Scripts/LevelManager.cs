@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public float timePerSpawn = 0.0f;
     [SerializeField] public int numberOfEnemies = 0; //how many enemies in total for this level?
 
-    [SerializeField] public float enemyHP = 0; // testing setting enemy hp in TowerBuilder
+    [SerializeField] public int enemyHP = 0; // testing setting enemy hp in TowerBuilder
 
     [Header("Health")]
     [SerializeField] public int maxHealth = 100;
@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
                     Quaternion.identity);
                 newEnemy.GetComponent<Enemy>().SetPathway(tileManager.finalPath);
 
-                newEnemy.GetComponent<Enemy>().health = enemyHP; // test code for passing in enemy hp
+                newEnemy.GetComponent<Enemy>().SetMaxHP(enemyHP); // test code for passing in enemy hp
 
                 enemies.Add(newEnemy);
                 currentEnemies++;

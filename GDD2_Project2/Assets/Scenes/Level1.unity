@@ -1167,7 +1167,7 @@ MonoBehaviour:
   endYindex: 3
   timePerSpawn: 2
   numberOfEnemies: 50
-  enemyHP: 10
+  enemyHP: 0
 --- !u!114 &350560200
 MonoBehaviour:
   m_ObjectHideFlags: 0
