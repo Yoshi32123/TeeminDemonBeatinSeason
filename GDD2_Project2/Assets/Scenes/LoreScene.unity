@@ -177,7 +177,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: -Doug Dimmadome, king of the Dimmsdale Dimmadome Kingdom
+  m_text: -Charles Lothric, King of the Holy Kingdom of Ethshar.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 839340ff0bab24a46a5310eb0374a097, type: 2}
   m_sharedMaterial: {fileID: -8547211342065852097, guid: 839340ff0bab24a46a5310eb0374a097,
@@ -247,10 +247,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 377254295}
-    characterCount: 56
+    characterCount: 54
     spriteCount: 0
-    spaceCount: 7
-    wordCount: 8
+    spaceCount: 8
+    wordCount: 9
     linkCount: 0
     lineCount: 1
     pageCount: 1
