@@ -1492,8 +1492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setLevel: 1
   towerRanges: []
-  xTiles: 500
-  yTiles: 500
+  xTiles: 5
+  yTiles: 7
   maxPathTiles: 500
   startYindex: 3
   endYindex: 3

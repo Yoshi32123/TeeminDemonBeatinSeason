@@ -190,7 +190,7 @@ public class TileManager : MonoBehaviour
         // if y tiles are odd
         else
         {
-            TopLeftY = ((yTiles - 1) / 2 * tileDifferential) - tileDifferential / 2;
+            TopLeftY = ((yTiles - 1) / 2 * tileDifferential);
         }
 
         // small changes for button room
