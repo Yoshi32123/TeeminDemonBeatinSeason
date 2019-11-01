@@ -23,6 +23,7 @@ Shader "Unlit/ColorAdjust"
 
 			struct Input {
 				float2 uv_MainTex;
+				float4 vertColor : COLOR;
 			};
 
 			float _Brightness;
@@ -41,7 +42,7 @@ Shader "Unlit/ColorAdjust"
 			}
 			void surf(Input IN, inout SurfaceOutputStandard o)
 			{
-				fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+				fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color * IN.vertColor;
 				o.Albedo = applyHSBEffect(c)*6;
 				o.Alpha = c.a;
 			}

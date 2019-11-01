@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
     public void SetColor()
     {
         Color newColor = new Color(1.0f, 1.0f - (1.0f / health), 1.0f - (1.0f / health));
-        gameObject.GetComponent<SpriteRenderer>().material.color = newColor;
+        gameObject.GetComponent<SpriteRenderer>().color = newColor;
     }
 
     /// <summary>
